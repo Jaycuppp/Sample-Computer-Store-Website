@@ -1,0 +1,149 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
+
+<nav class="navbar navbar-expand-lg" id="Search_NavBar">
+  <div class="collapse navbar-collapse" id="Search_Nav_Bar_Content">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item" id="Home_Image_Button">
+        <a href="{% url 'HomePage' %}"> <h3> &#127968 <h3> </a>
+      </li>
+
+      <li class="nav-item" id="Search_Bar_Button">
+        <form class="d-flex" method=POST action="{% url 'ProductSearchResultPage' %}">
+          {% csrf_token %}
+          <input class="form-control me-2" id="Product_Search_Input_Bar" type="search" placeholder="Search Product" name="Searched" aria-label="Search">
+          <button class="btn" id="Search_Button" type="submit"> Search </button>
+        </form>
+      </li>
+
+      <li class="nav-item" id="Shopping_Cart_Button">
+        <a class="nav-link active" id="Shopping_Cart_Button" aria-current="page" href= "{% url 'ShoppingCart' %}"  target="blank"> MyShopCart </a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg" id="Main_NavBar">
+    <div class="container-fluid">
+      {% comment %} <a cl ass="navbar-brand" href="#">Navbar</a> {% endcomment %}
+
+      {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> {% endcomment %}
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" id="Main_NavBar_Button" aria-current="page" href="{% url 'HomePage' %}" target="blank"> Home </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'AboutUsPage' %}" target="blank"> About Quansh Tech </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'ProductsPage' %}" target="blank"> Products </a>
+          </li>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn dropdown-toggle" id="Main_NavBar_Button" data-bs-toggle="dropdown" aria-expanded="false"> Services We Provide </button>
+                <ul class="dropdown-menu dropdown-menu" id="Business_Products_Services_DropDown_Options">
+                  <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'TechConsultationPage' %}" target="blank"> Consultation </a></li>
+                  <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'TechSupportPage' %}" target="blank"> Tech Support </a></li>
+
+                  {% if user.is_superuser or user.is_staff%}
+                  <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'LaboratoryPage' %}" target="blank" style="color: red;"> &#11088 Lab (Work in Progress) </a></li>
+                  {% endif %}
+
+                  <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'Careers' %}" target="blank"> Careers </a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'LocationPages' %}" target="blank"> Store Locations </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'CustomerReviewsPage' %}" target="blank"> Leave A Review  </a>
+          </li>
+
+          {% comment %} Elements Being Displayted For Users who have an Admin Status Account {% endcomment %}
+          {% if user.is_authenticated  %}
+          
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" id="Main_NavBar_Button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account </button>
+            <ul class="dropdown-menu" id="Account_DropDown_Options">
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MyAccountPage' %}" target="blank"> My Account </a> </li>
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MyShoppingPage' %}" target="blank"> My Shoping Cart </a> </li>
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MySupportPage' %}" target="blank"> My Support  </a> </li>
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'LogoutPage' %}" target="blank"> Logout </a> </li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" id="Main_NavBar_Button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Admin Dashboards </button>
+            <ul class="dropdown-menu" id="Account_DropDown_Options">
+
+              {% if user.is_superuser or user.is_staff %}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="https://qt-site.vercel.app/admin/" target="blank"> Website Admin </a> </li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff or user.username == "QTMan" %}
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'Reports' %}" target="blank"> Report Generator </a> </li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff %}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminDashECommerce' %}" target="blank"> Website Statistics </a></li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff or user.username == "QTMan"%}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminDashRetailStores' %}" target="blank"> Retail Stores </a></li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff or user.username == "QTCsr" %}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminDashCustomerSupport' %}" target="blank"> Customer Support </a></li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff or user.username == "QTMark" %}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminCustomerReviews' %}" target="blank"> Quansh Tech Reviews </a></li>
+              {% endif %}
+
+              {% if user.is_superuser or user.is_staff or user.username == "QTHr" %}
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminHumanResources' %}" target="blank"> Human Resources </a></li>
+              {% endif %}
+
+            </ul>
+          </div>
+
+          {% else %}
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'CreateAccount' %}" target="blank"> Create An Account </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" id="Main_NavBar_Button" href="{% url 'LoginPage' %}" target="blank"> Login  </a>
+          </li>
+          {% endif %} 
+
+          <li class="nav-item">
+            <a class="nav-link" id="Company_Email" href="mailto:QuanshTech@gmail.com"> QuanshTech@gmail.com </a>
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link" id="Company_Phone" href="tel:818-364-2146"> 818-364-2146 </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+

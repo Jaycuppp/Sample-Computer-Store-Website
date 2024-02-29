@@ -1,0 +1,56 @@
+{% load static %}
+
+
+{% if user.is_superuser or user.username == "QTHR" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <title> Human Resources </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
+        
+    </head>
+
+    <body>
+        <header> 
+            <span id="Admin_HR_Dash_Title"> <h1> The Human Resource Admin WebPage </h1> </span>
+            {% include "Navbar.html"%} <br>
+        </header>
+
+        <main>
+            <div id="Stats_HR">
+                <ul class="list-group" id="Job_Applicant_Table">
+                    <h3 id="Job_Open_Title"> Job Openings </h3>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="HR_Stats_Data">
+                        Total Job Openings <span class="badge bg-primary rounded-pill"> {{Jobs.count}}  </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="HR_Stats_Data">
+                        Total Applicants <span class="badge bg-primary rounded-pill"> {{HR.count}}  </span>
+                    </li>
+                </ul>
+
+                <ul class="list-group" id="Staff_Table">
+                    <h3 id="Quansh_Staff_Title"> Quansh Tech Staff </h3>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="HR_Stats_Data"> 
+                        Total Staff Members <span class="badge bg-primary rounded-pill"> {{ Staff.count }}  </span>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        <footer> 
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+            <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
+        </footer>
+    </body>
+</html>
+
+{% else %}
+
+    {% include '404_Error_Page.html'%}
+
+{% endif %}

@@ -1,0 +1,136 @@
+{% load static %}
+
+{% if user.is_superuser or user.username == "QTEco" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <title> Web Products Dashboard </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
+        
+    </head>
+
+    <body>
+        <header> 
+            <span id="Products_Dashboard_Title"> <h1> E-Commerce Dashboard </h1> </span>
+            {% include "Navbar.html"%} <br>
+        </header>
+        <main>
+            <div id="Stats_Promos">                          
+                <ul class="list-group" id="Web_Stats_Table">
+                    <h2 id="Web_Stats"> Website Statistics </h2> 
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="Web_Stats_Table_Data"> 
+                        Total Web Prodcuts <span class="badge bg-primary rounded-pill"> {{AllProducts.count}}  </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="Web_Stats_Table_Data"> 
+                        Today's Online Purchases <span class="badge bg-primary rounded-pill"> 77 </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center" id="Web_Stats_Table_Data"> 
+                        Active Customer Accounts  <span class="badge bg-primary rounded-pill"> 5000 </span>
+                    </li>
+                </ul>
+
+                <table class="table table-hover table-bordered border-dark" id="Promotions_Table">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan=777> <h2 id="Promotions"> Promotions </h2>  </th>
+                        </tr>
+                        <tr>
+                            <th scope="col"> Promo Code </th>
+                            <th scope="col"> Discount Amount </th>
+                            <th scope="col"> Date Range  </th>
+                            <th scope="col"> Description </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for Promo in Promo %}
+                        <tr>
+                            <td> {{ Promo.CouponName }} </td>
+                            <td> {{ Promo.Discount }} </td>
+                            <td> </td>
+                            {% comment %} <td> {{ Promo.StartDate }} --- {{ Promo.EndDate}} </td> {% endcomment %}
+                            <td> {{ Promo.Description }} </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <table class="table table-hover table-bordered border-dark" id="All_Products_Table">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan=777> <h2 id="All_Comp_Products"> All Company Products </h2> </th>
+                    </tr>
+
+                    <tr>
+                        <th scope="col"> View Product </th>
+                        <th scope="col"> Brand </th>
+                        <th scope="col"> Product </th>
+                        <th scope="col"> Current Promotion </th>
+                        <th scope="col"> Product Life Status </th>
+                    </tr>
+                </thead>
+
+                {% for Product in PaginatedProducts%}
+                <tbody>
+                    <tr>
+                        <td> <a href="{% url 'ShowProductPage' Product.id %}" id="View_Product_Link"> Click Me </a> </td>
+                        <td> {{Product.Brand}} </td>
+                        <td> {{Product.Name}} </td>
+
+                        {% if Product.Coupon %}
+                        <td id="CouponCode"> {{Product.Coupon}} </td>
+                        {% else %}
+                        <td> N/A </td>
+                        {% endif %}
+
+                        {% if Product.Discontinued %}
+                        <td id="EOL"> Discontined </td>
+                        {% else %}
+                        <td id="Available"> Available </td>
+                        {% endif %}
+
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+
+            <div>
+                <nav aria-label="Page navigation example" id="Paggination">
+                    <ul class="pagination">
+                        {% if PaginatedProducts.has_previous %}
+                            <li class="page-item"> <a class="page-link" href="?page=1">&laquo; first</a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.previous_page_number }}"> Previous </a> </li>
+                        {% endif %}
+
+                        {% for iter in Numbers%}
+                            <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}} </a></li>
+                        {% endfor %}
+
+                        {% if PaginatedProducts.has_next %}
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.next_page_number }}"> Next </a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.paginator.num_pages }} "> last &raquo; </a> </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+
+        </main>
+
+        <footer> 
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+            <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
+        </footer>
+    </body>
+</html>
+
+{% else %}
+
+    {% include '404_Error_Page.html'%}
+
+{% endif %}

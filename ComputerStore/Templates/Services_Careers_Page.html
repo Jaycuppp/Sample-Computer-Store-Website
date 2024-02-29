@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Jobs </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
+
+    </head>
+
+    <body>
+        <header> 
+            <span id="Careers_Page_Title"> <h1> Quansh Tech Jobs </h1> </span>
+            {% include "Navbar.html"%}
+        </header>
+
+        <main> 
+            <h2 id="Employment_Greetings"> Employment Opportunities For Anyone Out There Looking For Them  </h2>
+
+            <div>
+                <p id="Employment_Summary"> In today's world we fully understand the struggle of trying to obtain an
+                entry level employment position when almost every job has a requriment that asks for a minimum of 3
+                years of relevent work expereince. At Quansh Technology, we won't ask for 3 years of work expereince.
+                Instead all we want to know is if you are able to perform the job responsibilties for the position you 
+                are applying for under a certain set of expectations in a dynamic work environment
+                </p>
+            </div>
+
+            <div id="Successful_Submit_Message">
+            {% if messages %}
+                {% for message in messages %}
+                    <span class="alert alert-warning" role="alert"> {{ message }} </span>
+                {% endfor %}
+            {% endif %}
+            </div>
+
+            <div id="Employment_Positions">
+                {% for Job in Jobs %}
+                {% if Job.Filled == False %}
+                <div class="card" id="One_Job_Display">
+                    <div class="card-header"> <h5 class="card-title" id="Job_Title"> {{ Job.Title }} </h5> </div>
+                    <div class="card-body">
+                        
+                        {% if Job.Location_Type == "On Site" or Job.Location_Type == "Hybrid (On-site & Remote)" %}
+                        <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> The {{ Job.Store_Location }}</p>
+                        {% else %}
+                        <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> AnyWhere You Want </p>
+                        {% endif %}
+
+                        <p class="card-text" id="Job_Key_Respons"> <strong> Key Responsibilties </strong> </p>
+                        <p class="card-text" id="Responsibilties"> 
+                            &#8729 {{ Job.Key_Responsibilities.First }} <br> &#8729 {{ Job.Key_Responsibilities.Second }} <br>
+                            &#8729 {{ Job.Key_Responsibilities.Third }} <br> &#8729 {{ Job.Key_Responsibilities.Fourth }}
+                        </p>
+                        <p class="card-text" id="Salary"> <strong> Annual Salary: </strong> {{ Job.Salary }} </p>
+                        <a href="{% url 'JobApplication' Job.id %}" class="btn btn-primary"> <strong> Click Here to Apply </strong> </a>
+                    </div> 
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+            
+        </main>
+
+        <footer> 
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+        </footer>
+    </body>
+</html>

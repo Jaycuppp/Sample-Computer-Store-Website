@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <title> Quansh Technology Products </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
+        <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
+    </head>
+
+    <body>
+        <header> 
+            <span id="Single_Product_Title"> <h1> Quansh Tech Product </h1> </span>
+            {% include "Navbar.html"%} <br>
+        </header>
+
+        <main>
+            <div id="Product_Card">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" id="Single_Product_Card">
+                            <img class="card-img-top" id="Single_Product_Image" src="https://qt-bucket.s3.amazonaws.com/{{SingleProduct.Picture}}" alt="">
+                            <h4 class="card-title" id="Single_Product_Name_And_Brand"> {{ SingleProduct.Brand }} {{ SingleProduct.Name }} </h4>
+                            <h4 class="card-title" id="Single_Product_Summary_Header"> What is This? </h4>
+                            <p class="card-text" id="Single_Product_Summary"> {{ SingleProduct.Summary }} </p>
+                            <p class="card-text">
+                                <h4 class="card-title" id="Single_Product_Key_Feature_Header"> Key Product Features </h4>
+                                {% comment %} Think of a More Efficient Way to run this Control Flow to not Display NONE Key Product Features {% endcomment %}
+                                <ul id="Single_Product_Key_Feature_List">
+                                    {% if SingleProduct.Key_Feat_1 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_1 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_2 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_2 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_3 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_3 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_4 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_4 }} </li>
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_5 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_5 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_6 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_6 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_7 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_7 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_8 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_8 }} </li> 
+                                    {% endif %}
+
+                                    {% if SingleProduct.Key_Feat_9 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_9 }} </li>
+                                    {% endif %}
+                                    
+                                    {% if SingleProduct.Key_Feat_10 != None %}
+                                        <li id="Single_Product_Key_Feature_List_Item"> {{ SingleProduct.Key_Feat_10 }} </li>
+                                    {% endif %}
+                                </ul>
+                            </p>
+
+                            <span id="Single_Product_Price_Stock">
+                                {% comment %} Missing the Promo Calculation Logic for the HTML Page     {% endcomment %}
+                                {% if SingleProduct.CouponName == "MLG360"%}
+                                <p class="card-text" id="Single_Product_Price"> <strong> Price: </strong> ${{ SingleProduct.Price}} </p>
+                                
+                                {% elif SingleProduct.CouponName == "MKBundle"%}
+                                <p class="card-text" id="Single_Product_Price"> <strong> Price: </strong> ${{ SingleProduct.Price }} </p>
+
+                                {% else %}
+                                <p class="card-text" id="Single_Product_Price"> <strong> Price: </strong> ${{ SingleProduct.Price }} </p>
+                                {% endif %}
+
+                                {% comment %} Logic for When a Product is either Out of Stock and/or Discontinued {% endcomment %}
+                                {% if SingleProduct.Discontinued == False and SingleProduct.Stock > 0 %}
+                                <p class="stock-status" id="Single_Product_Stock"> <strong> Available: </strong> {{ SingleProduct.Stock }} </p>
+
+                                {% elif SingleProduct.Discontinued == False and SingleProduct.Stock == 0 or SingleProduct.Stock < 0 %}
+                                <p class="stock-status" id="Single_Product_Stock"> <strong> Currently Out Of Stock </strong> </p>
+
+                                {% elif SingleProduct.Discontinued == True and SingleProduct.Stock > 0%}
+                                <p class="stock-status" id="Single_Product_Stock"> <strong> Discontinued, Only {{ SingleProduct.Stock }} Available </strong> </p>
+
+                                {% elif SingleProduct.Discontinued == True and SingleProduct.Stock == 0 or SingleProduct.Stock < 0 %}
+                                <p class="stock-status" id="Single_Product_Stock"> <strong> Discontinued / EOL </strong> </p>
+                                {% endif %}
+                            </span>
+
+                            <div>
+                                <span id="Single_Product_Common_Buttons">
+                                    {% if SingleProduct.Stock == 0 %}
+                                    <a href="{% url 'ShoppingCart' %}" class="btn btn-dark" id="Single_Pre_Order_Button" style="left-margin: -10px;"> Pre Order </a>
+                                    {% else %}
+                                    <a href="{% url 'ShoppingCart' %}"  class="btn btn-dark" id="Single_Add_To_Cart_Button"> Add to cart </a>
+                                    {% endif %}
+                                    <a href="#" class="btn btn-dark" id="Single_Save_Item_Button"> Save Item </a> 
+                                </span>
+
+                                <span id="Single_Product_Auth_Buttons">
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'UpdateProduct' SingleProduct.id %}" class="btn btn-dark" id="Single_Update_Button"> Update </a>
+                                    {% if user.is_superuser %}
+                                    <a href="{% url 'DeleteProduct' SingleProduct.id %}" class="btn btn-dark" id="Single_Delete_Button"> Delete </a>
+                                    {% endif %}
+                                {% endif %}
+                                </span>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer> 
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+        </footer>
+    </body>
+</html>
