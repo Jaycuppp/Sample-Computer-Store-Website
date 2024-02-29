@@ -13,12 +13,12 @@
     </head>
 
     <body>
-        <header> </header>
+        <header> 
+            <span id="Product_Search_Result_Title"> <h1> Product Search Result </h1> </span>
+            {% include "Navbar.html"%}
+        </header>
 
         <main> 
-            <h1 id="Product_Search_Result"> Product Search Result </h1>
-            {% include "Navbar.html"%}
-
             {% if Searched %}
             <h2 id="You_Searched_For"> You Searched For {{ Searched }}</h2>
             {% endif %}

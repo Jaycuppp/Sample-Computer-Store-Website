@@ -14,7 +14,7 @@
   <body>
 
     </header>
-      <h1 style= "text-align: center; font-weight: 700;"> Quansh Tech Products </h1>
+      <span id="Product_Menu_Title"> <h1> Quansh Tech Products </h1> </span>
       {% include "Navbar.html"%} <br>
     <header>
 
@@ -30,6 +30,25 @@
         {% endfor %}
       {% endif %}
 
+      <a class="btn btn-dark" id="Pre_Order_Page" href="{% url 'AllPreOrder' %}" target="blank"> Pre Order Out Of Stock Products Here  </a>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if PaginatedProducts.has_previous %}
+            <li class="page-item"> <a href="?page=1" class="page-link"> &laquo First </a> </li>
+            <li class="page-item"> <a href="?page={{PaginatedProducts.previous_page_number}}" class="page-link"> Previous </a> </li>
+          {% endif %}
+
+          {% for iter in Numbers %}
+            <li class="page-item"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
+          {% endfor %}
+
+          {% if PaginatedProducts.has_next %}
+            <li class="page-item"> <a href="?page={{PaginatedProducts.next_page_number}}" class="page-link"> Next  </a> </li>
+            <li class="page-item"> <a href="?page={{PaginatedProducts.paginator.num_pages}}" class="page-link"> Last &raquo </a> </li>
+          {% endif %}
+        </ul>
+      </nav>
 
       <div class="ProductPage" id="All_Products_Menu">
           <div class="container">
@@ -71,7 +90,11 @@
 
                         <span id="All_Products_Common_Buttons"> 
                           <a href="{% url 'ShowProductPage' product.id %}" class="btn btn-dark" id="All_Products_View_Item_Button"> View Item </a>
-                          <a href="ShoppingCart" class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add to cart </a>
+                          {% if product.Stock == 0 %}
+                          <a href="{% url 'ShoppingCart' %}" class="btn btn-dark" id="All_Products_PreOrder_Button"> Pre Order </a>
+                          {% else %}
+                          <a href="{% url 'ShoppingCart' %}"  class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add to cart </a>
+                          {% endif %}
                         </span> 
 
                         {% if user.is_superuser %}

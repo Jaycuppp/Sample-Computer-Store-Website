@@ -10,6 +10,9 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
+#For API Calls
+# import requests
+
 # Connecting from other code files in same Django project
 from .models import *
 from .forms import *
@@ -22,6 +25,8 @@ def HomePage(request):
     SS4 = "https://qt-bucket.s3.amazonaws.com/Images/Home_Page_Slide_Show_Pic_4.PNG"
     SS5 = "https://qt-bucket.s3.amazonaws.com/Images/Home_Page_Slide_Show_Pic_5.PNG"
     SS6 = "https://qt-bucket.s3.amazonaws.com/Images/Home_Page_Slide_Show_Pic_6.PNG"
+    
+    # BitCoinAPICall = requests
 
     return render(request, "Home_Page.html", {
         "SS1": SS1,
@@ -38,7 +43,7 @@ def AboutUsPage(request):
     })
 
 def LocationsPage(request):
-    Location = StoreLocations.objects.all().order_by('?')
+    Location = StoreLocations.objects.all().order_by('City')
     Map_Access_Token = 'pk.pk.eyJ1IjoibmluamEwODE0IiwiYSI6ImNsbjBqcGpzcjFkc3YybHBoMGpzb3d6NDEifQ.Q327KcgWcaRFoAQSuuDmGQ.Q327KcgWcaRFoAQSuuDmGQ'
     return render(request, "Locations_Index_Page.html", {
         "Locations": Location,
@@ -200,12 +205,12 @@ def ProductSearchPage(request):
         return render(request, "Product_Search_Result.html", {
             'Product': Product,
             })
-
-
-def SingleProduct(request, ProductKey):
-    Product_ID = StoreProducts.objects.get(pk=ProductKey)
-    return render(request, "0SingleProductPage.html", {"OneProduct": Product_ID})
-
+    
+def AllPreOrder(request):
+    No_Stock_Products = StoreProducts.objects.filter(Stock=0).order_by("Brand")
+    return render(request, "Product_PreOrder_All.html", {
+        "Products": No_Stock_Products,
+    })
 
 def ShoppingCart(request):
     if request.user.is_authenticated:
@@ -216,7 +221,7 @@ def ShoppingCart(request):
             })
     else:
         messages.success(request, f"You Must Have an Account To Access the Shopping Cart")
-        return render(request, "Home_Page.html", {
+        return render(request, "User_Register.html", {
             
         })
     
@@ -394,9 +399,11 @@ def MyShoppingCart(request):
 def MySupport(request):
     return render(request, "Account_My_Support_Page.html", {})
 
-
 def ReportsPage(request):
     return render(request, "Admin_Website_Reports_Page.html", {})
+
+def AccountReset(request):
+    return render(request, "User_Account_Reset_Page.html", {})
 
 
 def ProductText(response):

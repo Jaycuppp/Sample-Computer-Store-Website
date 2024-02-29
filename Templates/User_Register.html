@@ -14,10 +14,17 @@
 
     <body>
         <header>
-            <h1 id="Account_Register"> Account Registration </h1>
+            <span id="Account_Register_Title"> <h1> Account Registration </h1> </span>
             {% include "Navbar.html"%}
-        </header>
 
+            {% comment %} To Remind User To Create An Account {% endcomment %}
+            {% if messages %}
+                {% for message in messages %}
+                <span class="alert alert-warning" id="LogIn_LogOut_Alert" role="alert"> {{ message }} </span>
+                {% endfor %}
+            {% endif %}
+
+        </header>
         <main>
             <h3 id="Create_Account_Message"> Create Your Quansh Tech Account Below </h3>
 

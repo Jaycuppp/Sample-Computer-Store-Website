@@ -16,8 +16,8 @@
 
     <body>
         <header> 
-        <h1 id="Products_Dashboard"> ECommerce Dashboard </h1>
-        {% include "Navbar.html"%} <br>
+            <span id="Products_Dashboard_Title"> <h1> E-Commerce Dashboard </h1> </span>
+            {% include "Navbar.html"%} <br>
         </header>
         <main>
             <div id="Stats_Promos">                          
@@ -104,17 +104,17 @@
                 <nav aria-label="Page navigation example" id="Paggination">
                     <ul class="pagination">
                         {% if PaginatedProducts.has_previous %}
-                        <li class="page-item"> <a class="page-link" href="?page=1">&laquo; first</a> </li>
-                        <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.previous_page_number }}"> Previous </a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page=1">&laquo; first</a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.previous_page_number }}"> Previous </a> </li>
                         {% endif %}
 
                         {% for iter in Numbers%}
-                        <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}} </a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}"> {{forloop.counter}} </a></li>
                         {% endfor %}
 
                         {% if PaginatedProducts.has_next %}
-                        <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.next_page_number }}"> Next </a> </li>
-                        <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.paginator.num_pages }} "> last &raquo; </a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.next_page_number }}"> Next </a> </li>
+                            <li class="page-item"> <a class="page-link" href="?page={{ PaginatedProducts.paginator.num_pages }} "> last &raquo; </a> </li>
                         {% endif %}
                     </ul>
                 </nav>

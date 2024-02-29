@@ -14,8 +14,8 @@
 
     <body>
         <header> 
-        <h1 style="text-align: center;, font-weight: 700;"> Single Location Page </h1>
-        {% include "Navbar.html"%} <br>
+            <span id="Single_Location_Title"> <h1> Single Location Page </h1>
+            {% include "Navbar.html"%} <br>
         </header>
 
         <main>
@@ -29,7 +29,7 @@
             <div class="card" id="Single_Location_Card">
                 <img src="https://qt-bucket.s3.amazonaws.com/{{Location.Store_Image}}" alt="" class="card-img-top" id="Single_Location_Image">
                 <div class="card-body" id="Single_Location_Body">
-                    <h3 class="card-title" id="Single_Location_Title"> Quansh Tech {{ Location }} </h3>
+                    <h3 class="card-title" id="Single_Location_Card_Title"> Quansh Tech {{ Location }} </h3>
 
                     <div id="Single_Location_Address_Section"> 
                         <p class="card-text" id="Store_Address_Title"> <h5> &#127970 <span id="Store_Address"> Store Address </h5> </p>

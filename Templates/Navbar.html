@@ -19,6 +19,7 @@
       <li class="nav-item" id="Shopping_Cart_Button">
         <a class="nav-link active" id="Shopping_Cart_Button" aria-current="page" href= "{% url 'ShoppingCart' %}"  target="blank"> MyShopCart </a>
       </li>
+      
     </ul>
   </div>
 </nav>
@@ -72,8 +73,8 @@
             <a class="nav-link" id="Main_NavBar_Button" href="{% url 'CustomerReviewsPage' %}" target="blank"> Leave A Review  </a>
           </li>
 
-          {% if user.is_authenticated  %}
           {% comment %} Elements Being Displayted For Users who have an Admin Status Account {% endcomment %}
+          {% if user.is_authenticated  %}
           
           <div class="dropdown">
             <button class="btn dropdown-toggle" id="Main_NavBar_Button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +93,7 @@
             <ul class="dropdown-menu" id="Account_DropDown_Options">
 
               {% if user.is_superuser or user.is_staff %}
-              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="http://127.0.0.1:8000/admin/" target="blank"> Website Admin </a> </li>
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="https://qt-site.vercel.app/admin/" target="blank"> Website Admin </a> </li>
               {% endif %}
 
               {% if user.is_superuser or user.is_staff or user.username == "QTMan" %}

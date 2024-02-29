@@ -10,20 +10,20 @@ def Login_Auth(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
-
+        
         if user is not None:
             login(request, user)
             messages.success(request, ("You have Logged in successfully!"))
             return redirect("HomePage")
-
+        
         else:
             messages.success(request, ("There was a Login error. Try again."))
             return redirect("LoginPage")
-
+        
     else:
         return render(request, "Login.html", {})
-
-
+    
+    
 def User_Logout(request):
     logout(request)
     messages.success(request, ("You have logged out!"))
@@ -37,7 +37,7 @@ def User_Forgot_Password(request):
 def User_Register(request):
     if request.method == "POST":
         Form = UserRegistrationForm(request.POST)
-
+        
         if Form.is_valid():
             Form.save()
             username = Form.cleaned_data["username"]
@@ -45,10 +45,10 @@ def User_Register(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, ("Account successfully Created!"))
-            return redirect ("LoginPage")
-
+            return redirect ("LoginPage")      
+        
     else:
-        Form = UserRegistrationForm()
+        Form = UserRegistrationForm()               
 
     return render(request, "User_Register.html", {
         'Form': Form,

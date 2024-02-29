@@ -18,6 +18,11 @@ th{
     text-align: center;
 }
 
+h1{
+    text-align: center;
+    font-weight: 700;
+}
+
 #Comment{
     color: #CC313D;
     font-weight: 700;
@@ -70,45 +75,31 @@ th{
 }
 
 /* Responsive Styling for the Search NavBar */
-@media screen and (max-width: 2500px) {
+@media screen and (max-width: 991px){
     #Product_Search_Input_Bar{
-        width: 2000px;
+        margin-left: 187px;
     }
-}
 
-@media screen and (max-width: 2400px) {
-    #Product_Search_Input_Bar{
-        width: 1900px;
-    }
-}
-
-@media screen and (max-width: 2300px) {
-    #Product_Search_Input_Bar{
-        width: 1800px;
-    }
-}
-
-@media screen and (max-width: 2200px) {
-    #Product_Search_Input_Bar{
-        width: 1700px;
-    }
-}
-
-@media screen and (max-width: 2100px) {
-    #Product_Search_Input_Bar{
-        width: 1600px;
+    #Home_Image_Button{
+        position: absolute;
     }
 }
 
 @media screen and (max-width: 2000px) {
     #Product_Search_Input_Bar{
-        width: 1500px;
+        width: 1450px;
     }
 }
 
 @media screen and (max-width: 1900px) {
     #Product_Search_Input_Bar{
         width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1850px) {
+    #Product_Search_Input_Bar{
+        width: 1350px;
     }
 }
 
@@ -160,7 +151,6 @@ th{
     }
 }
 
-
 @media screen and (max-width: 1400px){
     #Product_Search_Input_Bar{
         width: 900px;
@@ -171,14 +161,14 @@ th{
     #Product_Search_Input_Bar{
         width: 850px;
     }
-}
 
+}
 @media screen and (max-width: 1300px){
     #Product_Search_Input_Bar{
         width: 800px;
     }
-
 }
+
 @media screen and (max-width: 1250px){
     #Product_Search_Input_Bar{
         width: 750px;
@@ -209,16 +199,105 @@ th{
     }
 }
 
-@media screen and (max-width: 991px){
+@media screen and (max-width: 1000px){
     #Product_Search_Input_Bar{
-        margin-left: 187px;
+        width: 500px;
     }
-
-    #Home_Image_Button{
-        position: absolute;
-    }
-
 }
+
+
+@media screen and (max-width: 950px){
+    #Product_Search_Input_Bar{
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #Product_Search_Input_Bar{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    #Product_Search_Input_Bar{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #Product_Search_Input_Bar{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    #Product_Search_Input_Bar{
+        margin-left: 100px;
+        width: 350px;
+    }
+    
+    #Home_Image_Button{
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    #Product_Search_Input_Bar{
+        margin-left: 5px;
+        width: 395px;
+    }
+    
+    #Home_Image_Button{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px){
+    #Product_Search_Input_Bar{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 605px){
+    #Shopping_Cart_Button{
+        display: none;
+    }
+
+    #Product_Search_Input_Bar{
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 575px){
+    #Product_Search_Input_Bar{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 525px){
+    #Product_Search_Input_Bar{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 455px){
+    #Product_Search_Input_Bar{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 405px){
+    #Product_Search_Input_Bar{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 355px){
+    #Product_Search_Input_Bar{
+        width: 220px;
+    }
+}
+
 
 /* Main NavBar */
 #Main_NavBar, #Account_DropDown_Options, #Business_Products_Services_DropDown_Options{
@@ -257,12 +336,18 @@ th{
     }
 }
 
-@media screen and (max-width: 1105px) {
+@media screen and (max-width: 1123px) {
     #Main_NavBar_Button{
-        margin-top: -20px;
-        margin-bottom: -20px;
+        font-size: 14.7px;
     }
 }
+
+@media screen and (max-width: 1045px) {
+    #Main_NavBar_Button{
+        font-size: 13.7px;
+    }
+}
+
 
 
 @media screen and (max-width: 991px) {
@@ -270,8 +355,8 @@ th{
 
 
 /* Home Page */
-#Business_Name_Quansh_Tech{
-    text-align: center;
+#Home_Page_Title{
+    
 }
 
 #LogIn_LogOut_Alert{
@@ -284,15 +369,21 @@ th{
 #Picture_SlideShow{
 }
 
+
+#Computer_Store_Contact_Info {
+    background-color: #221f1a;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
 #Computer_Store_Email_Home {
+    border: ridge;
     margin-right: 100px;
 }
 
-#Computer_Store_Contact_Info {
-    background-color: #cebfab;
-    padding-top: 7%;
-    padding-bottom: 20%;
-    padding-left: 14%;
+#Computer_Store_Phone_Home{
+    border: ridge;
 }
 
 #Back_To_Top_Page_Button{
@@ -325,7 +416,11 @@ th{
 
 
 /* About Us Page */
-#About_Quansh_Tech, #About_Title{
+#About_Quansh_Tech_Title{
+
+}
+
+#About_Title{
     text-align: center;
 }
 
@@ -460,11 +555,30 @@ th{
     padding-left: 3%;
 }
 
+@media screen and (max-width: 750px) {
+    
+}
+
 /* Product Menu Page */
+#Product_Menu_Title{
+
+}
+
 #Add_A_Product_Button{
     padding: 14px;
     margin-left: 10%;
     margin-bottom: 25px;
+}
+
+
+
+#Pre_Order_Page{
+    color: #cf6f7f;;
+    background-color: #4b2027;
+    font-weight: 100;
+    margin-left: 16%;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 #All_Products_Menu{
@@ -532,6 +646,13 @@ th{
     margin-right: 10px;
 }
 
+#All_Products_PreOrder_Button{
+    color: #b981a3;
+    background-color: #3d0f32;
+    margin-left: 10px;
+}
+
+
 #All_Products_Add_To_Cart_Button{
     color: #c7e9d7;
     background-color: #448f57;
@@ -551,6 +672,10 @@ th{
 }
 
 /* Single Product Page */
+#Single_Product_Title{
+
+}
+
 #Product_Card{
     display: table;
     position: relative;
@@ -640,6 +765,13 @@ th{
     margin-bottom: 10px;
 }
 
+#Single_Pre_Order_Button{
+    margin-right: 45px;
+    padding: 7px;
+    color: #b981a3;
+    background-color: #3d0f32;
+}
+
 #Single_Add_To_Cart_Button{
     margin-right: 45px;
     padding: 7px;
@@ -668,7 +800,24 @@ th{
     background-color: #c22323;
 }
 
-/* Product Add Page & Update Page for Admins Only */
+/* Product Pre_Order Page */
+#Single_PreOrder_Title{
+    text-align: center;
+    font-weight: 700;
+}
+
+/* All Products Pre_Order Page */
+#All_PreOrder_Title{
+    text-align: center;
+    font-weight: 700;
+}
+
+
+/* Product Add Page for Admins Only */
+#Admin_Product_Append_Title{
+
+}
+
 #New_Product_Submission_Message{
 
 }
@@ -684,6 +833,11 @@ th{
     width: 250px;
 }    
 
+/* Product Update Page for Admins Only */
+#Admin_Product_Update_Title{
+
+}
+
 #Product_Form_Description{
     width: 700px;
 }
@@ -692,335 +846,11 @@ th{
     margin-left: 22.5%;
 }
 
-/* Tech Consultation Page */
-#Quansh_Tech_Consultation{
-    text-align: center;
-    font-weight: 700;
-}
-
-#ConsultMessage{
-    padding-top: 4%;
-    font-weight: 700;
-    text-align: center;
-    color: #7c680b;
-}
-
-#Profesional_Consultation, #Personal_Consultation, #Consultation_Testimonials{
-    padding-top: 2%;
-    padding-left: 14%;
-    padding-right: 14%;
-}
-
-#Prof_Consult_Phone, #Prof_Consult_Email{
-    padding-right: 7%;
-}
-
-#Per_Consult_Phone, #Per_Consult_Email{
-    padding-right: 7%;
-}
-
-#Consult_Review{
-    color: #a7aa00;
-    font-weight: 700;
-    margin-top: 3%;
-}
-
-#Actual_Testimonial{
-    margin-top: 2%;
-    margin-bottom: 5%;
-    width: 1200px;
-}
-
-#Consult_Review_Title{
-    color: #530a0a;
-}
-
-#Consult_Review_Body{
-    color: #17803f;
-}
-
-/* Tech Support Page */
-#Quansh_Tech_Support{ 
-    text-align: center;
-    font-weight: 700;
-    
-}
-
-#Tech_Support_Message{
-    padding-top: 4%;
-    text-align: center;
-    font-weight: 700;
-    color: #7c680b;
-}
-
-#Direct_Support_Message{
-    font-weight: 700;
-}
-
-#Tech_Support_Contact{
-    padding-top: 2%;
-    padding-left: 14%;
-    padding-right: 14%;
-    font-weight: 700;
-}
-
-#Tech_Support_Phone{
-    padding-right: 7%;
-}
-
-#Support_Tickets{
-    padding-top: 2%;
-    padding-left: 14%;
-    padding-right: 20%;
-}
-
-#Submit_Question_Message{
-    font-weight: 700;
-}
-
-#Question_Submitted_Successfully{
-    
-}
-
-#EmailSubmission, #QuestionSubmission{
-    
-}
-
-#Tech_Question_Submit_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-left: 45%;
-    margin-bottom: 7%;
-}
-
-#FAQ_Message{
-    font-weight: 700;
-}
-
-#Tech_FAQs {
-    padding-left: 14%;
-    padding-right: 20%;
-}
-
-/* Tech Lab Page */
-#Quansh_Tech_Lab{
-    text-align: center;
-    font-weight: 700;
-}
-
-#Lab_Greetings{
-    color: #7c680b;
-    text-align: center;
-    font-weight: 700;
-    padding-top: 2%;
-    margin-top: 2%;
-}
-
-#Lab_Summary{
-    padding-top: 2%;
-    padding-left: 14%;
-    padding-right: 14%;
-}
-
-
-/* Careers Page */
-#Quansh_Tech_Jobs{
-    text-align: center;
-}
-
-#Employment_Greetings{
-    color: #7c680b;
-    text-align: center;
-    padding-top: 2%;
-    margin-top: 2%;
-    font-weight: 700;
-}
-
-#Employment_Summary{
-    padding-top: 2%;
-    padding-left: 14%;
-    padding-right: 14%;
-}
-
-#Successful_Submit_Message{
-    padding-top: 2%;
-    padding-left: 30%;
-    padding-right: 20%;
-    padding-bottom: 5%;
-}
-
-#Employment_Positions{
-    margin-left: 27%;
-    margin-right: 35%;
-    
-}
-
-#Job_Title {
-    color: #2645f1;
-}
-
-#WorkPlace {
-    color: #b81010;
-}
-
-#Job_Key_Respons{
-    color: #921f9c;
-}
-
-#Responsibilties{
-    color: #530a0a;
-}
-
-#Salary {
-    color: #358606;
-}
-
-#One_Job_Display{
-    margin-bottom: 10%;
-}
-
-/* Single Job Appliaction Page */
-#Single_Job_Position, #Job_Application_Form{
-    margin-left: 20%;
-    margin-right: 30%;
-}
-
-#Single_Job_Title{
-    color: #2645f1;
-}
-
-#Single_Salary{
-    color: #358606;
-}
-
-#Single_Location_Type, #Single_Workplace{
-    color: #b81010;
-}
-
-#Single_Job_Description, #Single_Job_Responsibilties{
-    color: #921f9c;
-}
-
-#Single_Job_Benefits{
-    color: #8b822a;
-}
-
-#Single_Job_EEO{
-    color: #000000;
-}
-
-#HR_Phone {
-    padding-right: 5%;
-}
-
-#Application_Title{
-    font-weight: 700;
-    text-align: center;
-}
-
-#Job_Application_Form {
-    padding-top: 3%;
-}
-
-#Submit_Button{
-    display: table;
-    margin: auto;
-    /* color: #000000;
-    background-color: #000000; */
-    margin-bottom: 20%;
-}
-
-/* Locations Page */
-#Locations_Page{
-    text-align: center;
-    font-weight: 700;
-}
-
-#Locations_Greetings{
-    color: #7c680b;
-    text-align: center;
-    font-weight: 700;
-    padding-top: 2%;
-    margin-top: 2%;
-}
-
-
-#All_Locations{
-    margin-left: 20%;
-    margin-right: 20%
-}
-
-#Location_Card{
-    text-align: center;
-    display: inline-block;
-    width: 300px;
-    margin-left: 5%;
-    margin-top: 5%;
-}
-
-#Store_Location{
-    color: #771800;
-}
-
-#More_Details_Button {
-    /* color: #000000;
-    background-color: #000000; */
-    margin: 3.5%;
-}
-
-
-#Update_Location_Button{
-    /* color: #000000;
-    background-color: #000000; */
-}
-
-/* Single Location Page */
-#Update_Location_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-left: 20%;
-}
-
-#Single_Location_Card{
-    margin-top: 20px;
-    margin-left: 20%;
-    margin-right: 25%;
-    margin-bottom: 100px;
-}
-
-#Single_Location_Title{
-    color: #a73a98;
-}
-
-#Store_Address, #Business_Hours{
-    color: #530a0a;
-    font-weight: 700;
-}
-
-#Entire_Address{
-    color: #110f11;
-    padding-left: 32px;
-    margin-bottom: 45px;
-}
-
-#Phone_Number{
-    margin-bottom: 45px;
-}
-
-#Business_Hours_List {
-    list-style: none;
-}
-
-#Day {
-    color: #CC313D;
-    font-weight: 700;
-}
-
-#Open_And_Close_Times{
-    color: #1e6d5c;
-}
-
 /* Location Update Page for Admins Only */
+#Admin_Location_Update_Title{
+
+}
+
 #Location_Update_Form{
     margin-left: 25%;
 }
@@ -1031,192 +861,49 @@ th{
     margin-top: 0.07%;
 }
 
+#Location_Update_Button{
 
-/* Customer Shopping Review Form Page */
-#Customer_Shopping_Review_Form{
-    margin-left: 14%;
-    margin-right: 15%;
 }
 
-#Shopping_Date, #Review_Score, #Entire_Review {
-    color: #13196b;
+/* Customer Support Status Update Change for Admins Only */
+#Admin_Ticket_Status_Update_Title{
 }
 
-#Shopping_Review_Submit {
-    margin-left: 43%;
+#Single_CSR_Ticket{
+    display: table;
+    margin: auto;
+    padding-right: 10%;
+    padding-top: 5%;
 }
 
-/* Customer Reviews Page for Quansh Tech Staff Only */
-#Quansh_Tech_Reviews_Title{
-    color: #7c680b;
-    font-weight: 700;
-    text-align: center;
-    margin-left: 14%;
-    margin-right: 14%;
-    margin-bottom: 50px;
-}
-
-
-#Entire_Review_Card{
-    margin-left: 14%;
-    margin-right: 14%;
-    margin-bottom: 100px;
-    width: 65%;
-}
-
-#Review_Card_Header{
-    font-weight: 700;
-    color: #530a0a;
-}
-
-
-#Good_Review_Score{
-    color: #30ff29;
-    text-shadow: 0.25px 0.25px;
-}
-
-#Good_Review_Message{
-    color: #11500e;
-}
-
-#Bad_Review_Score{
-    color: #ff0000;
-    text-shadow: 0.25px 0.25px;
-}
-
-#Bad_Review_Message{
-    color: #6d0808;
-}
-
-#Average_Review_Score{
-    color: #cfcd46;
-    text-shadow: 0.25px 0.25px;
-}
-
-#Average_Review_Message{
-    color: #757427;
-}
-
-#Review_Message{
-    color: #8d1f37;
-}
-
-
-/* Account Registration Page */
-#Account_Register{
-    text-align: center;
-}
-
-#Create_Account_Message{
-    color: #7c680b;
-    font-weight: 700;
-    text-align: center;
-    margin-left: 14%;
-    margin-right: 14%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-#Account_Registration{
-    margin-left: 14%;
-    margin-right: 10%;
-    width: 70%;
-    color: #2e0000;
-}
-
-#Registration_Username, #Registration_First_Name, #Registration_Last_Name,
-#Registration_Email, #Registration_Password1, #Registration_Password2{
-    color: #011e2e;
-}
-
-
-#Account_Registration_Submit_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-left: 45%;
-}
-
-/* Login Page */
-#User_Login{
-    display: flex;
-    margin-top: 5%;
-    margin-right: 25%;
-    margin-left: 25%;
-}
-
-#User_Login_Form{
-    width: 700px;
-}
-
-#Login_Username, #Login_Password{
-    color: #2F3C7E;
-}
-
-#Login_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-bottom: 5%;
-    margin-right: 10%;
-}
-
-#Create_Account_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-bottom: 5%;
-    margin-right: 10%;
-}
-
-#Forgot_Pass_Button{
-    /* color: #000000;
-    background-color: #000000; */
-    margin-bottom: 5%;
-}
-
-/* Generate Reports Page */
-#All_Reports{
-    display: inline-flex;
-    margin-top: 2.5%;
-    margin-left: 14%;
-    margin-bottom: 2.5%;
-}
-
-/* Existing User Account Recovery Page */
-#Account_Recovery_Page{
-    text-align: center;
-    font-weight: 700;
-}
-
-#Forgot_Password_Message{
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 5%;
-    color: #bd0600;
-}
-
-#Account_Recovery_Buttons{
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 3%;
-}
-
-#Reset_User_Button{
+#Ticket_Update_Form{
+    margin-top: 30px;
     margin-left: 20%;
-    margin-right: 2.5%;
-    /* color: #000000;
-    background-color: #000000; */
 }
 
-#Reset_Pass_Button{
-    margin-left: 5%;
-    /* color: #000000;
-    background-color: #000000; */
+#Check_Box{
+    color: #277c00;
+    font-weight: 700;
+    text-shadow: 0.25px 0.25px;
 }
 
+#Empty_Box{
+    color: #bd0600;
+    font-weight: 700;
+    text-shadow: 0.25px 0.25px;
+}
 
+#Support_Status_Change_Form{
+    margin-left: 14%;
+}
 
-/* Website Reports Page */
-#Reports_Page{ 
-    text-align: center;
+#Update_Ticket_Status_Button{
+    margin-top: 20px;
+}
+
+/* Website Reports Page for Admins Only */
+#Admin_Reports_Title{ 
+    
 }
 
 #Product_Reports{
@@ -1228,10 +915,9 @@ th{
 #TXT_Product_Report, #CSV_Product_Report, #PDF_Locations_Report{
 }
 
-/* ECommerce Dashboard Web Page Admins Only */
-#Products_Dashboard{
-    text-align: center;
-    font-weight: 700;
+/* E-Commerce Dashboard Web Page Admins Only */
+#Products_Dashboard_Title{
+
 }
 
 
@@ -1290,10 +976,9 @@ th{
     margin: auto;
 }
 
-/* Retail Stores Dashboard Web Page Admins Only */
-#Retail_Stores_Dashboard{
-    text-align: center;
-    font-weight: 700;
+/* Retail Stores Dashboard Web Page For Admins Only */
+#Admin_Retial_Stores_Dash_Title{
+
 }
 
 #Stats_Stores{
@@ -1326,49 +1011,9 @@ th{
     color: #201E20;
 }
 
-/* Leaving a Review Page */
-
-#Add_A_Review_Header{
-    text-align: center; 
-    font-weight: 700;
-}
-
-#Review_Form{
-    display: block;
-    margin: auto;
-    padding-top: 5%;
-    width: 75%;
-}
-
-#Review_Form_Title{
-    text-align: center; 
-    font-weight: 700;
-    color: #19172e;
-    margin-bottom: 30px;
-}
-
-#Good_Title{
-    color: #088623;
-}
-
-#Bad_Title{
-    color: #bdad1c;
-}
-
-#Ugly_Title{
-    color: #ff0000;
-}
-
-#Review_Form_Survey_Submit{
-    margin-left: 42%;
-    margin-right: 40%;
-}
-
-
 /* Customer Support Dashboard, Admins Only  */
-#QTCustomers{
-    text-align: center;
-    font-weight: 700;
+#Admin_Customer_Support_Title{
+
 }
 
 #Pending_Tickets{
@@ -1431,46 +1076,11 @@ th{
     color: #1f0549;
 }
 
-/* Customer Support Status Update Change, Admins Only */
-#Ticket_Status_Update_Page{
-    text-align: center;
-    font-weight: 700;
-}
-
-#Single_CSR_Ticket{
-    display: table;
-    margin: auto;
-    padding-right: 10%;
-    padding-top: 5%;
-}
-
-#Ticket_Update_Form{
-    margin-top: 30px;
-    margin-left: 20%;
-}
-
-#Check_Box{
-    color: #277c00;
-    font-weight: 700;
-    text-shadow: 0.25px 0.25px;
-}
-
-#Empty_Box{
-    color: #bd0600;
-    font-weight: 700;
-    text-shadow: 0.25px 0.25px;
-}
-
-#Support_Status_Change_Form{
-    margin-left: 14%;
-}
-
-#Update_Ticket_Status_Button{
-    margin-top: 20px;
-}
-
-
 /* Human Resources Web Page HR Personal & Admins Only */
+#Admin_HR_Dash_Title{
+
+}
+
 #Stats_HR {
     display: inline-flex;
 }
@@ -1491,8 +1101,561 @@ th{
     margin-left: 7%
 }
 
+/* Tech Consultation Page */
+#Consultation_Page_Title{
+}
+
+#ConsultMessage{
+    padding-top: 4%;
+    font-weight: 700;
+    text-align: center;
+    color: #7c680b;
+}
+
+#Profesional_Consultation, #Personal_Consultation, #Consultation_Testimonials{
+    padding-top: 2%;
+    padding-left: 14%;
+    padding-right: 14%;
+}
+
+#Prof_Consult_Phone, #Prof_Consult_Email{
+    padding-right: 7%;
+}
+
+#Per_Consult_Phone, #Per_Consult_Email{
+    padding-right: 7%;
+}
+
+#Consult_Review{
+    color: #a7aa00;
+    font-weight: 700;
+    margin-top: 3%;
+}
+
+#Actual_Testimonial{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 1200px;
+}
+
+#Consult_Review_Title{
+    color: #530a0a;
+}
+
+#Consult_Review_Body{
+    color: #17803f;
+}
+
+/* Tech Support Page */
+#Support_Page_Title{ 
+    
+}
+
+#Tech_Support_Message{
+    padding-top: 4%;
+    text-align: center;
+    font-weight: 700;
+    color: #7c680b;
+}
+
+#Direct_Support_Message{
+    font-weight: 700;
+}
+
+#Tech_Support_Contact{
+    padding-top: 2%;
+    padding-left: 14%;
+    padding-right: 14%;
+    font-weight: 700;
+}
+
+#Tech_Support_Phone{
+    padding-right: 7%;
+}
+
+#Support_Tickets{
+    padding-top: 2%;
+    padding-left: 14%;
+    padding-right: 20%;
+}
+
+#Submit_Question_Message{
+    font-weight: 700;
+}
+
+#Question_Submitted_Successfully{
+    
+}
+
+#EmailSubmission, #QuestionSubmission{
+    
+}
+
+#Tech_Question_Submit_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-left: 45%;
+    margin-bottom: 7%;
+}
+
+#FAQ_Message{
+    font-weight: 700;
+}
+
+#Tech_FAQs {
+    padding-left: 14%;
+    padding-right: 20%;
+}
+
+/* Tech Lab Page */
+#Lab_Title{
+
+}
+
+#Lab_Greetings{
+    color: #7c680b;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 2%;
+    margin-top: 2%;
+}
+
+#Lab_Summary{
+    padding-top: 2%;
+    padding-left: 14%;
+    padding-right: 14%;
+}
+
+
+/* Careers Page */
+#Careers_Page_Title{
+}
+
+#Employment_Greetings{
+    color: #7c680b;
+    text-align: center;
+    padding-top: 2%;
+    margin-top: 2%;
+    font-weight: 700;
+}
+
+#Employment_Summary{
+    padding-top: 2%;
+    padding-left: 14%;
+    padding-right: 14%;
+}
+
+#Successful_Submit_Message{
+    padding-top: 2%;
+    padding-left: 30%;
+    padding-right: 20%;
+    padding-bottom: 5%;
+}
+
+#Employment_Positions{
+    margin-left: 27%;
+    margin-right: 35%;
+    
+}
+
+#Job_Title {
+    color: #2645f1;
+}
+
+#WorkPlace {
+    color: #b81010;
+}
+
+#Job_Key_Respons{
+    color: #921f9c;
+}
+
+#Responsibilties{
+    color: #530a0a;
+}
+
+#Salary {
+    color: #358606;
+}
+
+#One_Job_Display{
+    margin-bottom: 10%;
+}
+
+/* Single Job Appliaction Page */
+#Single_Job_Apply_Title{
+
+}
+
+#Single_Job_Position, #Job_Application_Form{
+    margin-left: 20%;
+    margin-right: 30%;
+}
+
+#Single_Job_Title{
+    color: #2645f1;
+}
+
+#Single_Salary{
+    color: #358606;
+}
+
+#Single_Location_Type, #Single_Workplace{
+    color: #b81010;
+}
+
+#Single_Job_Description, #Single_Job_Responsibilties{
+    color: #921f9c;
+}
+
+#Single_Job_Benefits{
+    color: #8b822a;
+}
+
+#Single_Job_EEO{
+    color: #000000;
+}
+
+#HR_Phone {
+    padding-right: 5%;
+}
+
+#Application_Title{
+    font-weight: 700;
+    text-align: center;
+}
+
+#Job_Application_Form {
+    padding-top: 3%;
+}
+
+#Submit_Button{
+    display: table;
+    margin: auto;
+    /* color: #000000;
+    background-color: #000000; */
+    margin-bottom: 20%;
+}
+
+/* Locations Page */
+#Locations_Page_Title{
+
+}
+
+#Locations_Greetings{
+    color: #7c680b;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 2%;
+    margin-top: 2%;
+}
+
+
+#All_Locations{
+    margin-left: 20%;
+    margin-right: 20%
+}
+
+#Location_Card{
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#Store_Location{
+    color: #771800;
+}
+
+#More_Details_Button {
+    /* color: #000000;
+    background-color: #000000; */
+    margin: 3.5%;
+}
+
+
+
+/* Single Location Page */
+#Single_Location_Title{
+
+}
+
+#Update_Location_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-left: 20%;
+}
+
+#Single_Location_Card{
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 25%;
+    margin-bottom: 100px;
+}
+
+#Single_Location_Card_Title{
+    color: #a73a98;
+}
+
+#Store_Address, #Business_Hours{
+    color: #530a0a;
+    font-weight: 700;
+}
+
+#Entire_Address{
+    color: #110f11;
+    padding-left: 32px;
+    margin-bottom: 45px;
+}
+
+#Phone_Number{
+    margin-bottom: 45px;
+}
+
+#Business_Hours_List {
+    list-style: none;
+}
+
+#Day {
+    color: #CC313D;
+    font-weight: 700;
+}
+
+#Open_And_Close_Times{
+    color: #1e6d5c;
+}
+
+
+/* Customer Shopping Review Form Page */
+#Customer_Shopping_Review_Form{
+    margin-left: 14%;
+    margin-right: 15%;
+}
+
+#Shopping_Date, #Review_Score, #Entire_Review {
+    color: #13196b;
+}
+
+#Shopping_Review_Submit {
+    margin-left: 43%;
+}
+
+/* Customer Reviews Page for Quansh Tech Staff Only */
+#Admin_Reviews_Dash_Title{
+
+}
+
+#Quansh_Tech_Reviews_Title{
+    color: #7c680b;
+    font-weight: 700;
+    text-align: center;
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-bottom: 50px;
+}
+
+
+#Entire_Review_Card{
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-bottom: 100px;
+    width: 65%;
+}
+
+#Review_Card_Header{
+    font-weight: 700;
+    color: #530a0a;
+}
+
+
+#Good_Review_Score{
+    color: #30ff29;
+    text-shadow: 0.25px 0.25px;
+}
+
+#Good_Review_Message{
+    color: #11500e;
+}
+
+#Bad_Review_Score{
+    color: #ff0000;
+    text-shadow: 0.25px 0.25px;
+}
+
+#Bad_Review_Message{
+    color: #6d0808;
+}
+
+#Average_Review_Score{
+    color: #cfcd46;
+    text-shadow: 0.25px 0.25px;
+}
+
+#Average_Review_Message{
+    color: #757427;
+}
+
+#Review_Message{
+    color: #8d1f37;
+}
+
+
+/* Account Registration Page */
+#Account_Register_Title{
+
+}
+
+#Create_Account_Message{
+    color: #7c680b;
+    font-weight: 700;
+    text-align: center;
+    margin-left: 14%;
+    margin-right: 14%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#Account_Registration{
+    margin-left: 14%;
+    margin-right: 10%;
+    width: 70%;
+    color: #2e0000;
+}
+
+#Registration_Username, #Registration_First_Name, #Registration_Last_Name,
+#Registration_Email, #Registration_Password1, #Registration_Password2{
+    color: #011e2e;
+}
+
+
+#Account_Registration_Submit_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-left: 45%;
+}
+
+/* User Login Page */
+#User_Login_Title{
+
+}
+
+#User_Login{
+    display: flex;
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+#User_Login_Form{
+    width: 700px;
+}
+
+#Login_Username, #Login_Password{
+    color: #2F3C7E;
+}
+
+#Login_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-bottom: 5%;
+    margin-right: 10%;
+}
+
+#Create_Account_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-bottom: 5%;
+    margin-right: 10%;
+}
+
+#Forgot_Pass_Button{
+    /* color: #000000;
+    background-color: #000000; */
+    margin-bottom: 5%;
+}
+
+/* Generate Reports Page */
+#All_Reports{
+    display: inline-flex;
+    margin-top: 2.5%;
+    margin-left: 14%;
+    margin-bottom: 2.5%;
+}
+
+/* Existing User Account Recovery Page */
+#Account_Recovery_Page_Title{
+
+}
+
+#Forgot_Password_Message{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+    color: #bd0600;
+}
+
+#Account_Recovery_Buttons{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 3%;
+}
+
+#Reset_User_Button{
+    margin-left: 20%;
+    margin-right: 2.5%;
+    /* color: #000000;
+    background-color: #000000; */
+}
+
+#Reset_Pass_Button{
+    margin-left: 5%;
+    /* color: #000000;
+    background-color: #000000; */
+}
+
+/* Leaving a Review Page */
+#Add_A_Review_Header{
+
+}
+
+#Review_Form{
+    display: block;
+    margin: auto;
+    padding-top: 5%;
+    width: 75%;
+}
+
+#Review_Form_Title{
+    text-align: center; 
+    font-weight: 700;
+    color: #19172e;
+    margin-bottom: 30px;
+}
+
+#Good_Title{
+    color: #088623;
+}
+
+#Bad_Title{
+    color: #bdad1c;
+}
+
+#Ugly_Title{
+    color: #ff0000;
+}
+
+#Review_Form_Survey_Submit{
+    margin-left: 42%;
+    margin-right: 40%;
+}
+
 /* Product Search Result Page */
-#Product_Search_Result, #You_Searched_For{
+#Product_Search_Result_Title{
+
+} 
+
+#You_Searched_For{
     text-align: center;
     font-weight: 700;
 }
@@ -1509,12 +1672,30 @@ th{
     margin-bottom: 10px;
 }
 
+/* Shopping Cart Page */
+#Shopping_Cart_Title{
+
+}
+
+/* My Account Page */
+#My_Account_Title{
+
+}
+
+/* My Shopping Cart Page */
+#My_Shop_Cart_Title{
+
+}
+
+/* My Support Page */
+#My_Support_Title{
+
+}
+
 
 /* 404 Error Page */
-#Web_Page_Not_Found{
-    text-align: center;
+#Web_Page_Not_Found_Title{
     color: #eb1b1b;
-    font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 

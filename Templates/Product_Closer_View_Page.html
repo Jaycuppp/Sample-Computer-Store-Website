@@ -13,8 +13,8 @@
 
     <body>
         <header> 
-        <h1 style="text-align: center; font-weight: 700;"> Quansh Tech Product </h1>
-        {% include "Navbar.html"%} <br>
+            <span id="Single_Product_Title"> <h1> Quansh Tech Product </h1> </span>
+            {% include "Navbar.html"%} <br>
         </header>
 
         <main>
@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="card" id="Single_Product_Card">
-                            <img class="card-img-top" id="Single_Product_Image" src="https://qt-bucket.s3.amazonaws.com/{{ SingleProduct.Picture }}" alt="">
+                            <img class="card-img-top" id="Single_Product_Image" src="https://qt-bucket.s3.amazonaws.com/{{SingleProduct.Picture}}" alt="">
                             <h4 class="card-title" id="Single_Product_Name_And_Brand"> {{ SingleProduct.Brand }} {{ SingleProduct.Name }} </h4>
                             <h4 class="card-title" id="Single_Product_Summary_Header"> What is This? </h4>
                             <p class="card-text" id="Single_Product_Summary"> {{ SingleProduct.Summary }} </p>
@@ -101,7 +101,11 @@
 
                             <div>
                                 <span id="Single_Product_Common_Buttons">
-                                    <a href="{% url 'ShoppingCart' %}" class="btn btn-dark" id="Single_Add_To_Cart_Button"> Add to cart </a> 
+                                    {% if SingleProduct.Stock == 0 %}
+                                    <a href="{% url 'ShoppingCart' %}" class="btn btn-dark" id="Single_Pre_Order_Button" style="left-margin: -10px;"> Pre Order </a>
+                                    {% else %}
+                                    <a href="{% url 'ShoppingCart' %}"  class="btn btn-dark" id="Single_Add_To_Cart_Button"> Add to cart </a>
+                                    {% endif %}
                                     <a href="#" class="btn btn-dark" id="Single_Save_Item_Button"> Save Item </a> 
                                 </span>
 
