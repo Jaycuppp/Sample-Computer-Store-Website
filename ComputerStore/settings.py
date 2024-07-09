@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Website.apps.WebsiteConfig',
     'Customers.apps.CustomersConfig',
-    # 'import_export',
-    # 'storages',
+    'import_export',
+    'storages',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
-
 MEDIA_URL = '/Images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 MEDIAFILES_DIRS = (os.path.join(BASE_DIR, 'media'),)
@@ -143,6 +143,10 @@ MEDIAFILES_DIRS = (os.path.join(BASE_DIR, 'media'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Paypal Variables
+PAYPAL_RECEIVER_EMAIL = 'The Created Business / Merchant PayPal Email' #Where the Cash is going to be paid to
+PAYPAL_TEST = True
+PAYPAL_BUY_BUTTON_IMAGE = 'Any Image Link You Want'
 
 # AWS Integrations (Comment Below During Development Stage)
 # AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY"
