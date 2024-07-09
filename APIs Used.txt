@@ -1,0 +1,2 @@
+For NewsFeeds = https://newsapi.org/
+For Crypto Pricing = https://pro.coinmarketcap.com/
