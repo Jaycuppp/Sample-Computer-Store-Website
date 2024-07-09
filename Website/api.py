@@ -9,7 +9,7 @@ class Home_Page_API(object):
             EndPoint = '''/v1/cryptocurrency/quotes/latest'''
 
             API_DOMAIN = f'''https://pro-api.coinmarketcap.com{EndPoint}'''
-            API_KEY = "aac109c3-a3e3-4b2e-8c07-5e1ce57ee9f9"
+            API_KEY = "Your Coin Market Cap API KEY "
 
             TEST_API_DOMAIN = f'''https://sandbox-api.coinmarketcap.com{EndPoint}'''
             TEST_API_KEY = "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c"
@@ -61,7 +61,7 @@ class Location_Index_Page_API(object):
         Country = 'USA'
         Fahrenheit = 'imperial'
         
-        Weather_API_Key = 'f85aca7bc19a1d4d2b4f6fb57f636aed'
+        Weather_API_Key = 'Your Open Weather API KEY'
         Weather_API_Domain = f'https://api.openweathermap.org/data/2.5/weather?q={City},{State},{Country}&appid={Weather_API_Key}'
 
 
@@ -83,12 +83,3 @@ class Location_Index_Page_API(object):
 
         except (ConnectionError, Timeout, TooManyRedirects) as Error:
             return Error
-        
-        
-        
-def MapBox():
-    
-    Map_Access_Token = 1
-    Map_Access_Token = 'pk.pk.eyJ1IjoibmluamEwODE0IiwiYSI6ImNsbjBqcGpzcjFkc3YybHBoMGpzb3d6NDEifQ.Q327KcgWcaRFoAQSuuDmGQ.Q327KcgWcaRFoAQSuuDmGQ'
-    
-    return 0
