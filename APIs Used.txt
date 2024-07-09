@@ -1,2 +1,2 @@
-For NewsFeeds = https://newsapi.org/
+For Weather Report = https://openweathermap.org/api
 For Crypto Pricing = https://pro.coinmarketcap.com/
