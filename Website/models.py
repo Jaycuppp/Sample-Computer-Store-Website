@@ -1,8 +1,11 @@
 from datetime import *
+from django_resized import ResizedImageField
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import CharField
 from storages.backends.s3boto3 import S3Boto3Storage
+
+from .api import *
 
 # For Overloading the Preset Size of Images
 def ImageResize(Height, Width):
@@ -17,7 +20,8 @@ def ImageResize(Height, Width):
 
 class Pictures(models.Model):
     Name = models.CharField("Name of the Image Being Used", max_length=255)
-    Image = models.ImageField("The Image", null=True, blank=True, upload_to='Images/') #storage=AWS_Images()
+    # Image = models.ImageField("The Image", null=True, blank=True, upload_to='Images/') #storage=AWS_Images()
+    Image = ResizedImageField("The Image", size=[400, 400], null=True, blank=True, upload_to='Images/') #storage=AWS_Images()
     Custom_File = models.FileField("Any File", null=True, blank=True)
     
     def __str__(self):
@@ -27,8 +31,8 @@ class Pictures(models.Model):
 class CouponDiscount(models.Model):
     CouponName = models.CharField("Coupon Code", max_length=69)
     Description = models.TextField("Coupon Description", null=True, blank=True, max_length=500)
-    StartDate = models.DateTimeField("Start Date", null=True, blank=True)
-    EndDate = models.DateTimeField("End Date", null=True, blank=True)
+    StartDate = models.DateTimeField("When The Coupon Begins", null=True, blank=True)
+    EndDate = models.DateTimeField("When The Coupon Ends", null=True, blank=True)
     Discount = models.FloatField("Discount Amount", blank=True)
     Promo_Code_Image = models.ImageField("Promo Code Picture", null=True, blank=True, upload_to='Images/') #storage=AWS_Images()
 
@@ -54,18 +58,34 @@ class StoreProducts(models.Model):
     Key_Feat_9 = models.CharField("Key Prod Feat # 9", max_length=255, null=True, blank=True)
     Key_Feat_10 = models.CharField("Key Prod Feat # 10", max_length=255, null=True, blank=True)
     Picture = models.ImageField("Product Picture", null=True, blank=True, upload_to='Images/') #storage=AWS_Images()
+    Spec_Sheet = models.ImageField("Specification Sheet", null=True, blank=True, upload_to='Images/')
     Coupon = models.ForeignKey(CouponDiscount, null=True, blank=True, on_delete=models.CASCADE)
     Category = models.TextField("Product Classification's for Organization", null=True, blank=True)
     Discontinued = models.BooleanField("EOL Product", default=False)
     
-    @property
-    def Product_Image_ReSize(self):
-        ImageResize(200, 200)
-        return 0
-    
     def __str__(self):
         return f"{self.Brand} {self.Name}"
     
+class ShoppingCart(models.Model):
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    Product = models.ForeignKey(StoreProducts, null=True, blank=False, on_delete=models.CASCADE)
+    Amount = models.IntegerField(default=0)
+    Added_To_Cart = models.DateTimeField("Date of Product(s) added to Shop Cart", null=True, blank=True)  #auto_now_add=True
+    Payment_Date = models.DateTimeField("Payment Submission Date", null=True, blank=True) #auto_now_add=True
+    Payment_Status = models.CharField("Current Status of the Payment", max_length=255, blank=True)
+    Payment_Made = models.BooleanField("Has the Customer Made the Payment", default=False)
+    
+    def __str__(self):
+        return f'''{self.User}`s Online Shopping Cart'''
+    
+# class PayPalPayment(models.Model):
+#     User = models.ForeignKey(User, on_delete=models.CASCADE)
+#     Amount = models.IntegerField(default=ShoppingCart.Amount)
+#     Payment_Date = models.DateTimeField(auto_now_add=True)
+#     Payment_Status = models.CharField(max_length=255, blank=True)
+    
+#     def __str__(self):
+#         f''' {User.username}'s Payment Status '''
     
 class StoreLocations(models.Model):
     Street = models.CharField("Location Street Address", max_length=500)
@@ -73,8 +93,8 @@ class StoreLocations(models.Model):
     State = models.CharField("Location State", max_length=20)
     Zip = models.IntegerField("Location Zipcode Address")
     Phone = models.CharField("Location Phone Number", max_length=20)
-    Opens = models.TimeField("Opening Time")
-    Closes = models.TimeField("Closing Time")
+    Opens = models.TimeField("When The Store Opens")
+    Closes = models.TimeField("When The Store Closes")
     Store_Image = models.ImageField("Picture of the Computer Store", null=True, blank=True, upload_to='Images/') #storage=AWS_Images()    
     
     @property
@@ -84,6 +104,10 @@ class StoreLocations(models.Model):
     @property
     def Full_Location(self):
         return f"{self.Street}, {self.City}, {self.State}, {self.Zip}"
+    
+    @property
+    def City_Weather(self):
+        return Location_Index_Page_API.Current_Weather_API(self.City, self.State)
 
     def __str__(self):
         return self.City + " Location"
@@ -118,27 +142,28 @@ class CustomerSupportTickets(models.Model):
     Email = models.EmailField("Customer Email")
     Inquiry = models.TextField("Customer Technical Question(s)", blank=True)
     Answered = models.BooleanField("Has Support Ticket Been Answered", default=False)
+    Submission_Time = models.DateTimeField(auto_now_add=True)
     
-    @property
-    def TimeOfSubmission(self):
-        DT = datetime.now()
-        Hour0 = DT.hour 
-        Minute = DT.minute
-        Second = DT.second
+    # @property
+    # def TimeOfSubmission(self):
+    #     DT = datetime.now()
+    #     Hour0 = DT.hour 
+    #     Minute = DT.minute
+    #     Second = DT.second
         
-        if Hour0 > 12:
-            Hour1 = Hour0 - 12
-            AM_PM = "PM"
-        elif Hour0 < 12:
-            Hour1 = Hour0
-            AM_PM = "AM"
-        else:
-            Hour1 = Hour0
-            AM_PM = "PM"
+    #     if Hour0 > 12:
+    #         Hour1 = Hour0 - 12
+    #         AM_PM = "PM"
+    #     elif Hour0 < 12:
+    #         Hour1 = Hour0
+    #         AM_PM = "AM"
+    #     else:
+    #         Hour1 = Hour0
+    #         AM_PM = "PM"
             
-        ActualTimeOfSubmission = f"{Hour1}:{Minute}:{Second} {AM_PM}"
+    #     ActualTimeOfSubmission = f"{Hour1}:{Minute}:{Second} {AM_PM}"
         
-        return ActualTimeOfSubmission
+    #     return ActualTimeOfSubmission
     
     def __str__(self):
         return f"{self.Email}'s Support Ticket"
@@ -217,10 +242,6 @@ class CurrentEmployees(models.Model):
     W2_Tax_Information = models.FileField("Employee's W2 Form", blank=True)
     Emergency_Contact = models.ForeignKey(EmergencyContact, null=True, blank=True, on_delete=models.CASCADE)
     Employment_Contract = models.FileField("Current Work Contract for Employee", blank=True)
-    
-    @property
-    def TimeSheet(self):
-        OldTime = 0
         
     def __str__(self):
         return f"{self.First_Name} ({self.Job})"
@@ -244,7 +265,3 @@ class JobApplications(models.Model):
 #     Email = models.EmailField("Online Customers Email", max_length=255)
 #     Phone_Number = models.CharField("Customer's Phone Number", blank=True)
 #     Birthday = models.DateField("Customer's Birthday", blank=True)
-    
-    
-class TEST(models.Model):
-    TESt = models.FileField()

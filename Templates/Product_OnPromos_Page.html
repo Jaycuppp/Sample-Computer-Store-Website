@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title> All Available Pre Orders </title>
+        <title> On Promo Page </title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
@@ -14,18 +14,21 @@
 
     <body>
         <header> 
-            <span id="All_PreOrder_Title"> <h1> All Products Pre Order Page </h1> </span>
+            <span> <h1 id="Promo_Product_Title"> All Products On A Promotion Page </h1> </span>
             {% include "Navbar.html"%} <br>
         </header>
 
         <main>
+
             <div class="ProductPage" id="All_Products_Menu">
                 <div class="container">
                     <div class="row">
-                        {% for product in Products %}
+                        {% for product in Products  %}
                         <div class="col">
                             <div class="card" id="All_Products_Card">
                                 <div class="card-body">
+                                    <p id="Product_Promotion_Header"> Current Promtion: <strong> {{ product.Coupon }} </strong> </p>
+
                                     <a href="{% url 'ShowProductPage' product.id %}">  <img class="card-img-top" id="All_Products_Image" src="https://qt-bucket.s3.amazonaws.com/{{product.Picture}}" alt=""> </a>
                                     <a href="{% url 'ShowProductPage' product.id %}"> <h5 class="card-title" id="All_Products_Name_And_Brand"> {{product.Brand}} {{ product.Name }}</h5> </a>
                                     {% comment %} <p class="card-text" id="Product_Description"> {{ product.Description}} </p> {% endcomment %}
@@ -79,6 +82,7 @@
                     </div>
                 </div>
             </div>
+         
         </main>
 
         <footer> 

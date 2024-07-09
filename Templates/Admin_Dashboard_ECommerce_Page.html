@@ -20,6 +20,10 @@
             {% include "Navbar.html"%} <br>
         </header>
         <main>
+        {% if user.is_superuser %}
+            <a class="btn btn-success" id="Add_A_Product_Button" href="{% url 'AddProductPage' %}"> Add A New Product Here </a>
+        {% endif %}
+
             <div id="Stats_Promos">                          
                 <ul class="list-group" id="Web_Stats_Table">
                     <h2 id="Web_Stats"> Website Statistics </h2> 

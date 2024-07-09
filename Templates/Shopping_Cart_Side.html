@@ -1,0 +1,33 @@
+
+<div class="offcanvas offcanvas-start" id="offcanvasScrolling" data-bs-scroll="true"
+data-bs-backdrop="false" tabindex="-1" aria-labelledby="offcanvasScrollingLabel">
+
+    <div class="offcanvas-header">
+      {% if user.is_authenticated %} 
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"> My Shopping Cart </h5>
+      {% else %}
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel"> Account Required  </h5>
+      {% endif %}
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"> </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+      {% if user.is_authenticated %}
+
+        {% for MyCartItem in User_Cart%}
+          <p> Qty {{MyCartItem.Amount}}: {{MyCartItem.Product}} </p>
+        {% endfor %}
+          <p> Total: &#36;{{Total_Price}} </p>
+
+      {% else %}
+
+        <p> Click Below to Login / Create An Account </p>
+        <a href="{% url 'LoginPage' %}"  class="btn btn-dark" id="Off_Canvas_Login_Button"> Click Here To Log In</a>
+
+      {% endif %}
+
+    </div>
+
+</div>

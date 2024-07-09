@@ -1,6 +1,7 @@
 /* All Pages Styling */
 body {
     background-color: #FCEDDA;
+    /* background-color: #000000; */
     color: #4eb62e;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -14,16 +15,16 @@ a {
     text-decoration: none;
 }
 
-th{
+th {
     text-align: center;
 }
 
-h1{
+h1 {
     text-align: center;
     font-weight: 700;
 }
 
-#Comment{
+#Comment {
     color: #CC313D;
     font-weight: 700;
     padding-top: 2%;
@@ -34,16 +35,16 @@ h1{
 /* NavBar Extension Page */
 
 /* Search NavBar */
-#Search_NavBar{
+#Search_NavBar {
     background-color: #CC313D;
 }
 
-#Search_Nav_Bar_Content{
+#Search_Nav_Bar_Content {
     display: flex;
     margin-right: 100px;
 }
 
-#Home_Image_Button{
+#Home_Image_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-right: 50px;
@@ -51,16 +52,16 @@ h1{
 
 }
 
-#Search_Bar_Button{
-}
+#Search_Bar_Button {}
 
-#Search_Button{
+#Search_Button {
     background-color: #F7C5CC;
     font-weight: 700;
-    position: relative; left: 10px;
+    position: relative;
+    left: 10px;
 }
 
-#Product_Search_Input_Bar  {
+#Product_Search_Input_Bar {
     /* color: #000000; */
     background-color: #F7C5CC;
     font-weight: 700;
@@ -71,307 +72,330 @@ h1{
     color: #F7C5CC;
     font-weight: 700;
     margin-right: 15px;
-    position: absolute; right: 5px;
+    position: absolute;
+    right: 5px;
 }
 
 /* Responsive Styling for the Search NavBar */
-@media screen and (max-width: 991px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 991px) {
+    #Product_Search_Input_Bar {
         margin-left: 187px;
     }
 
-    #Home_Image_Button{
+    #Home_Image_Button {
         position: absolute;
     }
 }
 
 @media screen and (max-width: 2000px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1450px;
     }
 }
 
 @media screen and (max-width: 1900px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1400px;
     }
 }
 
 @media screen and (max-width: 1850px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1350px;
     }
 }
 
 @media screen and (max-width: 1800px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1300px;
     }
 }
 
 @media screen and (max-width: 1750px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1250px;
     }
 }
 
 @media screen and (max-width: 1700px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1200px;
     }
 }
 
 @media screen and (max-width: 1650px) {
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 1150px;
     }
 }
 
-@media screen and (max-width: 1600px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1600px) {
+    #Product_Search_Input_Bar {
         width: 1100px;
     }
 }
 
-@media screen and (max-width: 1550px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1550px) {
+    #Product_Search_Input_Bar {
         width: 1050px;
     }
 }
 
-@media screen and (max-width: 1500px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1500px) {
+    #Product_Search_Input_Bar {
         width: 1000px;
     }
 }
 
-@media screen and (max-width: 1450px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1450px) {
+    #Product_Search_Input_Bar {
         width: 950px;
     }
 }
 
-@media screen and (max-width: 1400px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1400px) {
+    #Product_Search_Input_Bar {
         width: 900px;
     }
 }
 
-@media screen and (max-width: 1350px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1350px) {
+    #Product_Search_Input_Bar {
         width: 850px;
     }
 
 }
-@media screen and (max-width: 1300px){
-    #Product_Search_Input_Bar{
+
+@media screen and (max-width: 1300px) {
+    #Product_Search_Input_Bar {
         width: 800px;
     }
 }
 
-@media screen and (max-width: 1250px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1250px) {
+    #Product_Search_Input_Bar {
         width: 750px;
     }
 }
 
-@media screen and (max-width: 1200px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1200px) {
+    #Product_Search_Input_Bar {
         width: 700px;
     }
 }
 
-@media screen and (max-width: 1150px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1150px) {
+    #Product_Search_Input_Bar {
         width: 650px;
     }
 }
 
-@media screen and (max-width: 1100px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1100px) {
+    #Product_Search_Input_Bar {
         width: 600px;
     }
 }
 
-@media screen and (max-width: 1050px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1050px) {
+    #Product_Search_Input_Bar {
         width: 550px;
     }
 }
 
-@media screen and (max-width: 1000px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 1000px) {
+    #Product_Search_Input_Bar {
         width: 500px;
     }
 }
 
 
-@media screen and (max-width: 950px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 950px) {
+    #Product_Search_Input_Bar {
         width: 450px;
     }
 }
 
-@media screen and (max-width: 900px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 900px) {
+    #Product_Search_Input_Bar {
         width: 400px;
     }
 }
 
-@media screen and (max-width: 850px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 850px) {
+    #Product_Search_Input_Bar {
         width: 350px;
     }
 }
 
-@media screen and (max-width: 800px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 800px) {
+    #Product_Search_Input_Bar {
         width: 300px;
     }
 }
 
-@media screen and (max-width: 750px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 750px) {
+    #Product_Search_Input_Bar {
         margin-left: 100px;
         width: 350px;
     }
-    
-    #Home_Image_Button{
+
+    #Home_Image_Button {
         margin-left: 50px;
     }
 }
 
-@media screen and (max-width: 700px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 700px) {
+    #Product_Search_Input_Bar {
         margin-left: 5px;
         width: 395px;
     }
-    
-    #Home_Image_Button{
+
+    #Home_Image_Button {
         display: none;
     }
 }
 
-@media screen and (max-width: 650px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 650px) {
+    #Product_Search_Input_Bar {
         width: 350px;
     }
 }
 
-@media screen and (max-width: 605px){
-    #Shopping_Cart_Button{
+@media screen and (max-width: 605px) {
+    #Shopping_Cart_Button {
         display: none;
     }
 
-    #Product_Search_Input_Bar{
+    #Product_Search_Input_Bar {
         width: 450px;
     }
 }
 
-@media screen and (max-width: 575px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 575px) {
+    #Product_Search_Input_Bar {
         width: 400px;
     }
 }
 
-@media screen and (max-width: 525px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 525px) {
+    #Product_Search_Input_Bar {
         width: 350px;
     }
 }
 
-@media screen and (max-width: 455px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 455px) {
+    #Product_Search_Input_Bar {
         width: 300px;
     }
 }
 
-@media screen and (max-width: 405px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 405px) {
+    #Product_Search_Input_Bar {
         width: 250px;
     }
 }
 
-@media screen and (max-width: 355px){
-    #Product_Search_Input_Bar{
+@media screen and (max-width: 355px) {
+    #Product_Search_Input_Bar {
         width: 220px;
     }
 }
 
 
 /* Main NavBar */
-#Main_NavBar, #Account_DropDown_Options, #Business_Products_Services_DropDown_Options{
+#Main_NavBar,
+#Account_DropDown_Options,
+#Business_Products_Services_DropDown_Options {
     background-color: #ff9c77;
 }
 
-#Main_NavBar_Button, #NavBar_DropDown_Menu_Button
-{
+#Main_NavBar_Button,
+#NavBar_DropDown_Menu_Button {
     color: #2F3C7E;
     /* background-color: #000000; */
     font-weight: 700;
 }
 
-#Company_Email, #Company_Phone {
+#Company_Email,
+#Company_Phone {
     color: #1e6d5c;
     font-weight: 700;
 }
 
 /* Responsive Styling For Main Navbar */
-@media screen and (max-width: 1497px){
-    #Company_Phone{
+@media screen and (max-width: 1497px) {
+    #Company_Phone {
         display: none;
     }
 }
 
-@media screen and (max-width: 1382px){
-    #Company_Email{
+@media screen and (max-width: 1382px) {
+    #Company_Email {
         display: none;
     }
-    
-    #Main_NavBar_Button{
 
-    }
-    #Account_DropDown_Options{
+    #Main_NavBar_Button {}
 
-    }
+    #Account_DropDown_Options {}
 }
 
 @media screen and (max-width: 1123px) {
-    #Main_NavBar_Button{
+    #Main_NavBar_Button {
         font-size: 14.7px;
     }
 }
 
 @media screen and (max-width: 1045px) {
-    #Main_NavBar_Button{
+    #Main_NavBar_Button {
         font-size: 13.7px;
     }
 }
 
 
 
-@media screen and (max-width: 991px) {
-}
+@media screen and (max-width: 991px) {}
 
 
 /* Home Page */
-#Home_Page_Title{
-    
-}
+#Home_Page_Title {}
 
-#LogIn_LogOut_Alert{
+#LogIn_LogOut_Alert {
     display: table;
     margin: auto;
-    margin-top: -2%;
+    margin-top: 50px;
     margin-bottom: 1%;
 }
 
-#Picture_SlideShow{
+#Picture_SlideShow {
+    margin-bottom: 100px;
+}
+
+#Crypto_Tracking {
+    margin-top: 100px;
+}
+
+#USDT_Crypto_Card,
+#SOL_Crypto_Card,
+#ETH_Crypto_Card,
+#BTC_Crypto_Card {
+    width: 400px;
 }
 
 
+#USDT_Crypto_Price,
+#SOL_Crypto_Price,
+#ETH_Crypto_Price,
+#BTC_Crypto_Price {
+    color: #62024f;
+}
+
+#Weather_Card {
+    width: 500px;
+}
+
 #Computer_Store_Contact_Info {
     background-color: #221f1a;
+    background-color: #3a4233;
     padding-top: 100px;
     padding-bottom: 100px;
     text-align: center;
@@ -382,11 +406,22 @@ h1{
     margin-right: 100px;
 }
 
-#Computer_Store_Phone_Home{
+#Computer_Store_Phone_Home {
     border: ridge;
 }
 
-#Back_To_Top_Page_Button{
+#liveToastBtn {
+    color: rgb(250, 255, 250);
+    background-color: rgb(19, 86, 19);
+    background-color: rgb(51, 0, 52);
+    text-align: center;
+    position: st;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 93%;
+}
+
+#Back_To_Top_Page_Button {
     display: block;
     /* color: #000000;
     background-color: #000000; */
@@ -395,144 +430,136 @@ h1{
 
 /* Responsive Styling for HomePage */
 @media screen and (max-width: 1350px) {
-    #Business_Name_Quansh_Tech{
-    }
-    
-    #LogIn_LogOut_Alert{
-    }
-    
-    #Picture_SlideShow{
-    }
-    
-    #Computer_Store_Email_Home {
-    }
-    
-    #Computer_Store_Contact_Info {
-    }
-    
-    #Back_To_Top_Page_Button{
-    }
+    #Business_Name_Quansh_Tech {}
+
+    #LogIn_LogOut_Alert {}
+
+    #Picture_SlideShow {}
+
+    #Computer_Store_Email_Home {}
+
+    #Computer_Store_Contact_Info {}
+
+    #Back_To_Top_Page_Button {}
 }
 
 
 /* About Us Page */
-#About_Quansh_Tech_Title{
+#About_Quansh_Tech_Title {}
 
-}
-
-#About_Title{
+#About_Title {
     text-align: center;
 }
 
-#About_Title{
+#About_Title {
     padding-top: 75px;
     font-weight: 700;
 }
 
-#About_Us_Article{
+#About_Us_Article {
     padding-left: 20%;
     padding-right: 20%;
     padding-top: 33px;
     padding-bottom: 250px;
 }
 
-#About_Introduction{
+#About_Introduction {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-#Introduction_Title{
+#Introduction_Title {
     color: #aa3e13;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Introduction_Body{
+#Introduction_Body {
     color: #e4541b;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-#About_Commitment{
+#About_Commitment {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-#Commitment_Title{
+#Commitment_Title {
     color: #927413;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Commitment_Body{
+#Commitment_Body {
     color: #c5a22d;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-#About_Products{
+#About_Products {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#Products_Title{
+#Products_Title {
     color: #053a80;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Products_Body{
+#Products_Body {
     color: #0c62d3;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-#About_Services{
+#About_Services {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#Services_Title{
+#Services_Title {
     color: #078596;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Services_Body{
+#Services_Body {
     color: #16bed4;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-#About_Pricing{
+#About_Pricing {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#Pricing_Title{
+#Pricing_Title {
     color: #088623;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Pricing_Body{
+#Pricing_Body {
     color: #14c039;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-#About_Community{
+#About_Community {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#Community_Title{
+#Community_Title {
     color: #600883;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Community_Body{
+#Community_Body {
     color: #9212c5;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
@@ -543,28 +570,24 @@ h1{
     padding-bottom: 10px;
 }
 
-#Conclusion_Title{
+#Conclusion_Title {
     color: #790707;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Conclusion_Body{
+#Conclusion_Body {
     color: #d31212;
     text-shadow: 0.25px 0.25px;
     padding-left: 3%;
 }
 
-@media screen and (max-width: 750px) {
-    
-}
+@media screen and (max-width: 750px) {}
 
 /* Product Menu Page */
-#Product_Menu_Title{
+#Product_Menu_Title {}
 
-}
-
-#Add_A_Product_Button{
+#Add_A_Product_Button {
     padding: 14px;
     margin-left: 10%;
     margin-bottom: 25px;
@@ -572,8 +595,8 @@ h1{
 
 
 
-#Pre_Order_Page{
-    color: #cf6f7f;;
+#Pre_Order_Page {
+    color: #cf6f7f;
     background-color: #4b2027;
     font-weight: 100;
     margin-left: 16%;
@@ -581,20 +604,23 @@ h1{
     margin-bottom: 50px;
 }
 
-#All_Products_Menu{
-
+#Active_Promotion_Page {
+    font-weight: 100;
+    margin-left: 16%;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
-#All_Products_Card{
+#All_Products_Menu {}
+
+#All_Products_Card {
     width: 300px;
     margin-bottom: 20px;
 }
 
-#All_Products_Image{
+#All_Products_Image {}
 
-}
-
-#All_Products_Name_And_Brand{
+#All_Products_Name_And_Brand {
     color: #525528;
     margin-left: 5%;
     margin-right: 5%;
@@ -609,74 +635,89 @@ h1{
     color: #24923f;
 }
 
-#In_Stock_Product{
+#In_Stock_Product {
     margin-left: 5%;
     font-weight: 700;
     color: #5101bb;
 }
 
-#No_Stock_Product{
+#No_Stock_Product {
     margin-left: 5%;
     font-weight: 700;
     color: #a70138;
 }
 
-#EOL_In_Stock_Product{
+#EOL_In_Stock_Product {
     margin-left: 5%;
     font-weight: 700;
     color: #260058;
 }
 
-#EOL_No_Stock_Product{
+#EOL_No_Stock_Product {
     margin-left: 5%;
     font-weight: 700;
     color: #ff0000;
 }
 
-#All_Products_Common_Buttons, #All_Products_Auth_Buttons{
+#All_Products_Common_Buttons,
+#All_Products_Auth_Buttons {
     display: flex;
     margin-left: 5%;
     padding-top: 20px;
     padding-bottom: 15px;
 }
 
-#All_Products_View_Item_Button{
+#All_Products_View_Item_Button {
     color: #000000;
     background-color: #fffb00;
     margin-right: 10px;
 }
 
-#All_Products_PreOrder_Button{
+#All_Products_PreOrder_Button {
     color: #b981a3;
     background-color: #3d0f32;
     margin-left: 10px;
 }
 
 
-#All_Products_Add_To_Cart_Button{
+#All_Products_Add_To_Cart_Button {
     color: #c7e9d7;
     background-color: #448f57;
     margin-left: 10px;
 }
 
-#All_Products_Update_Button{
+#All_Products_Update_Button {
     color: #bdc9ff;
     background-color: #283d9b;
     margin-right: 16px;
 }
 
-#All_Products_Delete_Button{
+#All_Products_Delete_Button {
     color: #ffe0e0;
     background-color: #c22323;
     margin-left: 16px;
 }
 
-/* Single Product Page */
-#Single_Product_Title{
-
+#Bottom_Product_Page_Selector {
+    margin-bottom: 200px;
 }
 
-#Product_Card{
+/* The Produce Menu Off Canvas Side Page */
+#offcanvasScrolling {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FCEDDA;
+}
+
+#Off_Canvas_Login_Button {
+    margin-left: 15%;
+    color: #49361d;
+    background: #70d215;
+}
+
+/* Single Product Page */
+#Single_Product_Title {}
+
+#Product_Card {
     display: table;
     position: relative;
     margin-left: 30%;
@@ -684,11 +725,11 @@ h1{
     margin-bottom: 300px;
 }
 
-#Single_Product_Card{
+#Single_Product_Card {
     width: 700px;
 }
 
-#Single_Product_Image{
+#Single_Product_Image {
     /* display: table;
     margin: auto; */
     width: 300px;
@@ -696,16 +737,16 @@ h1{
     margin-left: 27.5%;
 }
 
-#Single_Product_Name_And_Brand{
+#Single_Product_Name_And_Brand {
     text-align: center;
     color: #2645f1;
     margin-left: 15%;
-    margin-right: 15%; 
-    margin-top: 50px; 
+    margin-right: 15%;
+    margin-top: 50px;
     margin-bottom: 50px
 }
 
-#Single_Product_Summary_Header{
+#Single_Product_Summary_Header {
     text-align: center;
     padding-left: 15%;
     padding-right: 15%;
@@ -713,7 +754,7 @@ h1{
     color: #8d1f37;
 }
 
-#Single_Product_Summary{
+#Single_Product_Summary {
     padding-left: 15%;
     padding-right: 15%;
     padding-bottom: 35px;
@@ -721,7 +762,7 @@ h1{
 }
 
 
-#Single_Product_Key_Feature_Header{
+#Single_Product_Key_Feature_Header {
     text-align: center;
     padding-left: 15%;
     padding-right: 15%;
@@ -729,35 +770,36 @@ h1{
     color: #8d1f37;
 }
 
-#Single_Product_Key_Feature_List{
+#Single_Product_Key_Feature_List {
     list-style-type: "🌟 ";
     padding-left: 17%;
     padding-right: 15%;
 }
 
-#Single_Product_Key_Feature_List_Item{
+#Single_Product_Key_Feature_List_Item {
     padding-bottom: 5px;
     color: #0f0633;
 
 }
 
-#Single_Product_Price_Stock{
+#Single_Product_Price_Stock {
     display: flex;
     padding-left: 25%;
     padding-right: 15%;
 }
 
-#Single_Product_Price{
+#Single_Product_Price {
     color: #104e34;
     padding-right: 40px;
 }
 
-#Single_Product_Stock{
+#Single_Product_Stock {
     color: #C76868;
     padding-left: 40px;
 }
 
-#Single_Product_Common_Buttons, #Single_Product_Auth_Buttons{
+#Single_Product_Common_Buttons,
+#Single_Product_Auth_Buttons {
     display: flex;
     margin-top: 25px;
     margin-left: 25%;
@@ -765,35 +807,35 @@ h1{
     margin-bottom: 10px;
 }
 
-#Single_Pre_Order_Button{
+#Single_Pre_Order_Button {
     margin-right: 45px;
     padding: 7px;
     color: #b981a3;
     background-color: #3d0f32;
 }
 
-#Single_Add_To_Cart_Button{
+#Single_Add_To_Cart_Button {
     margin-right: 45px;
     padding: 7px;
     color: #c7e9d7;
     background-color: #448f57
 }
 
-#Single_Save_Item_Button{
+#Single_Save_Item_Button {
     margin-left: 45px;
     padding: 7px;
     color: #000000;
     background-color: #fffb00;
 }
 
-#Single_Update_Button{
+#Single_Update_Button {
     margin-right: 60px;
     padding: 7px;
     color: #bdc9ff;
     background-color: #283d9b;
-}   
+}
 
-#Single_Delete_Button{
+#Single_Delete_Button {
     margin-left: 60px;
     padding: 7px;
     color: #ffe0e0;
@@ -801,148 +843,153 @@ h1{
 }
 
 /* Product Pre_Order Page */
-#Single_PreOrder_Title{
+#Single_PreOrder_Title {
     text-align: center;
     font-weight: 700;
 }
 
+/* All Promo Products Page */
+#Promo_Product_Title {
+    text-align: center;
+    font-weight: 700;
+}
+
+#Product_Promotion_Header {
+    margin-left: 5%;
+    color: #bc5b00;
+}
+
 /* All Products Pre_Order Page */
-#All_PreOrder_Title{
+#All_PreOrder_Title {
     text-align: center;
     font-weight: 700;
 }
 
 
 /* Product Add Page for Admins Only */
-#Admin_Product_Append_Title{
+#Admin_Product_Append_Title {}
 
-}
+#New_Product_Submission_Message {}
 
-#New_Product_Submission_Message{
-
-}
-
-#Product_Form{
+#Product_Form {
     margin-left: 25%;
 }
 
-#Product_Form_Name{
+#Product_Form_Name {
     width: 500px;
-}    
-#Product_Form_Brand, #Product_Form_Price, #Product_Form_Stock{
-    width: 250px;
-}    
-
-/* Product Update Page for Admins Only */
-#Admin_Product_Update_Title{
-
 }
 
-#Product_Form_Description{
+#Product_Form_Brand,
+#Product_Form_Price,
+#Product_Form_Stock {
+    width: 250px;
+}
+
+/* Product Update Page for Admins Only */
+#Admin_Product_Update_Title {}
+
+#Product_Form_Description {
     width: 700px;
 }
 
-#Product_Form_Submit_Button{
+#Product_Form_Submit_Button {
     margin-left: 22.5%;
 }
 
 /* Location Update Page for Admins Only */
-#Admin_Location_Update_Title{
+#Admin_Location_Update_Title {}
 
-}
-
-#Location_Update_Form{
+#Location_Update_Form {
     margin-left: 25%;
 }
 
-#Store_Street, #Store_City, #Store_State, #Store_Zip,
-#Store_Phone, #Store_Opening_Time, #Store_Closing_Time {
+#Store_Street,
+#Store_City,
+#Store_State,
+#Store_Zip,
+#Store_Phone,
+#Store_Opening_Time,
+#Store_Closing_Time {
     width: 300px;
     margin-top: 0.07%;
 }
 
-#Location_Update_Button{
-
-}
+#Location_Update_Button {}
 
 /* Customer Support Status Update Change for Admins Only */
-#Admin_Ticket_Status_Update_Title{
-}
+#Admin_Ticket_Status_Update_Title {}
 
-#Single_CSR_Ticket{
+#Single_CSR_Ticket {
     display: table;
     margin: auto;
     padding-right: 10%;
     padding-top: 5%;
 }
 
-#Ticket_Update_Form{
+#Ticket_Update_Form {
     margin-top: 30px;
     margin-left: 20%;
 }
 
-#Check_Box{
+#Check_Box {
     color: #277c00;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Empty_Box{
+#Empty_Box {
     color: #bd0600;
     font-weight: 700;
     text-shadow: 0.25px 0.25px;
 }
 
-#Support_Status_Change_Form{
+#Support_Status_Change_Form {
     margin-left: 14%;
 }
 
-#Update_Ticket_Status_Button{
+#Update_Ticket_Status_Button {
     margin-top: 20px;
 }
 
 /* Website Reports Page for Admins Only */
-#Admin_Reports_Title{ 
-    
-}
+#Admin_Reports_Title {}
 
-#Product_Reports{
-}
+#Product_Reports {}
 
-#Location_Reports{
-}
+#Location_Reports {}
 
-#TXT_Product_Report, #CSV_Product_Report, #PDF_Locations_Report{
-}
+#TXT_Product_Report,
+#CSV_Product_Report,
+#PDF_Locations_Report {}
 
 /* E-Commerce Dashboard Web Page Admins Only */
-#Products_Dashboard_Title{
-
-}
+#Products_Dashboard_Title {}
 
 
-#Stats_Promos{
+#Stats_Promos {
     display: inline-flex;
 }
 
 
-#Web_Stats, #Promotions, #All_Comp_Products{
+#Web_Stats,
+#Promotions,
+#All_Comp_Products {
     text-align: center;
     color: #3a0629;
 }
 
-#Web_Stats_Table{
+#Web_Stats_Table {
     width: 500px;
     margin-right: 5%;
     margin-left: 7%
 }
 
-#Web_Stats_Table_Data{
+#Web_Stats_Table_Data {
     color: #201E20;
     background-color: #E0A96D;
 }
 
-#Promotions_Table{
+#Promotions_Table {
     color: #201E20;
     background-color: #E0A96D;
     text-align: left;
@@ -950,73 +997,70 @@ h1{
 }
 
 
-#All_Products_Table{
+#All_Products_Table {
     color: #201E20;
     background-color: #E0A96D;
     margin-left: 14%;
     width: 1300px;
 }
 
-#View_Product_Link{
+#View_Product_Link {
     color: #201E20;
 }
 
-#EOL{
+#EOL {
     color: #ff0000;
     font-weight: 700;
 }
 
-#Available, #CouponCode{
+#Available,
+#CouponCode {
     color: #2e7917;
     font-weight: 700;
 }
 
-#Paggination{
+#Paggination {
     display: table;
     margin: auto;
 }
 
 /* Retail Stores Dashboard Web Page For Admins Only */
-#Admin_Retial_Stores_Dash_Title{
+#Admin_Retial_Stores_Dash_Title {}
 
-}
-
-#Stats_Stores{
+#Stats_Stores {
     display: flex;
 }
 
-#Retail_Store_Stats{
+#Retail_Store_Stats {
     width: 300px;
     margin-right: 10%;
     margin-left: 7%
 }
 
-#Retail_Stats_Table_Data{
+#Retail_Stats_Table_Data {
     color: #201E20;
     background-color: #E0A96D;
 }
 
-#Retail_Stores_Table{
+#Retail_Stores_Table {
     color: #201E20;
     background-color: #E0A96D;
     width: 700px;
 }
 
-#All_Store_Locations{
+#All_Store_Locations {
     text-align: center;
     color: #3a0629;
 }
 
-#View_Store_Link{
+#View_Store_Link {
     color: #201E20;
 }
 
 /* Customer Support Dashboard, Admins Only  */
-#Admin_Customer_Support_Title{
+#Admin_Customer_Support_Title {}
 
-}
-
-#Pending_Tickets{
+#Pending_Tickets {
     color: #5c0606;
     font-weight: 700;
     margin-left: 38%;
@@ -1024,7 +1068,7 @@ h1{
     margin-top: 20px;
 }
 
-#Answered_Tickets{
+#Answered_Tickets {
     color: #0e610b;
     font-weight: 700;
     margin-left: 38%;
@@ -1041,164 +1085,159 @@ h1{
     width: 65%;
 }
 
-#Pending_Ticket{
+#Pending_Ticket {
     color: #b81010;
     font-weight: 700;
 }
 
-#From_Email{
-}
+#From_Email {}
 
-#Answered_Ticket{
+#Answered_Ticket {
     color: #1de716;
     font-weight: 700;
 }
 
-#For_Email{
+#For_Email {}
 
-}
-
-#Customer_Inquiry{
+#Customer_Inquiry {
     color: #1d060b;
 }
 
-#Reply_To_Email{
+#Reply_To_Email {
     color: #921f9c;
     /* margin-left: 30%; */
 }
 
-#Customer_Email{
+#Customer_Email {
     margin-right: 5%;
 }
 
-#Update_Ticket_Button{
+#Update_Ticket_Button {
     background-color: #3ba044;
     color: #1f0549;
 }
 
 /* Human Resources Web Page HR Personal & Admins Only */
-#Admin_HR_Dash_Title{
-
-}
+#Admin_HR_Dash_Title {}
 
 #Stats_HR {
     display: inline-flex;
 }
 
-#Job_Open_Title, #Quansh_Staff_Title{
+#Job_Open_Title,
+#Quansh_Staff_Title {
     text-align: center;
     color: #c57812;
 }
 
-#HR_Stats_Data{
+#HR_Stats_Data {
     color: #8d1f37;
     background-color: #cdceae;
 }
 
-#Job_Applicant_Table, #Staff_Table {
+#Job_Applicant_Table,
+#Staff_Table {
     width: 500px;
     margin-right: 10%;
     margin-left: 7%
 }
 
 /* Tech Consultation Page */
-#Consultation_Page_Title{
-}
+#Consultation_Page_Title {}
 
-#ConsultMessage{
+#ConsultMessage {
     padding-top: 4%;
     font-weight: 700;
     text-align: center;
     color: #7c680b;
 }
 
-#Profesional_Consultation, #Personal_Consultation, #Consultation_Testimonials{
+#Profesional_Consultation,
+#Personal_Consultation,
+#Consultation_Testimonials {
     padding-top: 2%;
     padding-left: 14%;
     padding-right: 14%;
 }
 
-#Prof_Consult_Phone, #Prof_Consult_Email{
+#Prof_Consult_Phone,
+#Prof_Consult_Email {
     padding-right: 7%;
 }
 
-#Per_Consult_Phone, #Per_Consult_Email{
+#Per_Consult_Phone,
+#Per_Consult_Email {
     padding-right: 7%;
 }
 
-#Consult_Review{
+#Consult_Review {
     color: #a7aa00;
     font-weight: 700;
     margin-top: 3%;
 }
 
-#Actual_Testimonial{
+#Actual_Testimonial {
     margin-top: 2%;
     margin-bottom: 5%;
     width: 1200px;
 }
 
-#Consult_Review_Title{
+#Consult_Review_Title {
     color: #530a0a;
 }
 
-#Consult_Review_Body{
+#Consult_Review_Body {
     color: #17803f;
 }
 
 /* Tech Support Page */
-#Support_Page_Title{ 
-    
-}
+#Support_Page_Title {}
 
-#Tech_Support_Message{
+#Tech_Support_Message {
     padding-top: 4%;
     text-align: center;
     font-weight: 700;
     color: #7c680b;
 }
 
-#Direct_Support_Message{
+#Direct_Support_Message {
     font-weight: 700;
 }
 
-#Tech_Support_Contact{
+#Tech_Support_Contact {
     padding-top: 2%;
     padding-left: 14%;
     padding-right: 14%;
     font-weight: 700;
 }
 
-#Tech_Support_Phone{
+#Tech_Support_Phone {
     padding-right: 7%;
 }
 
-#Support_Tickets{
+#Support_Tickets {
     padding-top: 2%;
     padding-left: 14%;
     padding-right: 20%;
 }
 
-#Submit_Question_Message{
+#Submit_Question_Message {
     font-weight: 700;
 }
 
-#Question_Submitted_Successfully{
-    
-}
+#Question_Submitted_Successfully {}
 
-#EmailSubmission, #QuestionSubmission{
-    
-}
+#EmailSubmission,
+#QuestionSubmission {}
 
-#Tech_Question_Submit_Button{
+#Tech_Question_Submit_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-left: 45%;
     margin-bottom: 7%;
 }
 
-#FAQ_Message{
+#FAQ_Message {
     font-weight: 700;
 }
 
@@ -1208,11 +1247,9 @@ h1{
 }
 
 /* Tech Lab Page */
-#Lab_Title{
+#Lab_Title {}
 
-}
-
-#Lab_Greetings{
+#Lab_Greetings {
     color: #7c680b;
     text-align: center;
     font-weight: 700;
@@ -1220,7 +1257,7 @@ h1{
     margin-top: 2%;
 }
 
-#Lab_Summary{
+#Lab_Summary {
     padding-top: 2%;
     padding-left: 14%;
     padding-right: 14%;
@@ -1228,10 +1265,9 @@ h1{
 
 
 /* Careers Page */
-#Careers_Page_Title{
-}
+#Careers_Page_Title {}
 
-#Employment_Greetings{
+#Employment_Greetings {
     color: #7c680b;
     text-align: center;
     padding-top: 2%;
@@ -1239,23 +1275,23 @@ h1{
     font-weight: 700;
 }
 
-#Employment_Summary{
+#Employment_Summary {
     padding-top: 2%;
     padding-left: 14%;
     padding-right: 14%;
 }
 
-#Successful_Submit_Message{
+#Successful_Submit_Message {
     padding-top: 2%;
     padding-left: 30%;
     padding-right: 20%;
     padding-bottom: 5%;
 }
 
-#Employment_Positions{
+#Employment_Positions {
     margin-left: 27%;
     margin-right: 35%;
-    
+
 }
 
 #Job_Title {
@@ -1266,11 +1302,11 @@ h1{
     color: #b81010;
 }
 
-#Job_Key_Respons{
+#Job_Key_Respons {
     color: #921f9c;
 }
 
-#Responsibilties{
+#Responsibilties {
     color: #530a0a;
 }
 
@@ -1278,41 +1314,46 @@ h1{
     color: #358606;
 }
 
-#One_Job_Display{
+#One_Job_Display {
     margin-bottom: 10%;
 }
 
-/* Single Job Appliaction Page */
-#Single_Job_Apply_Title{
-
+#Apply_Button {
+    margin-left: 35%;
 }
 
-#Single_Job_Position, #Job_Application_Form{
+/* Single Job Appliaction Page */
+#Single_Job_Apply_Title {}
+
+#Single_Job_Position,
+#Job_Application_Form {
     margin-left: 20%;
     margin-right: 30%;
 }
 
-#Single_Job_Title{
+#Single_Job_Title {
     color: #2645f1;
 }
 
-#Single_Salary{
+#Single_Salary {
     color: #358606;
 }
 
-#Single_Location_Type, #Single_Workplace{
+#Single_Location_Type,
+#Single_Workplace {
     color: #b81010;
 }
 
-#Single_Job_Description, #Single_Job_Responsibilties{
+#Single_Job_Description,
+#Single_Job_Responsibilties {
     color: #921f9c;
 }
 
-#Single_Job_Benefits{
+#Single_Job_Benefits {
     color: #8b822a;
 }
 
-#Single_Job_EEO{
+#Single_Job_EEO {
     color: #000000;
 }
 
@@ -1320,7 +1361,7 @@ h1{
     padding-right: 5%;
 }
 
-#Application_Title{
+#Application_Title {
     font-weight: 700;
     text-align: center;
 }
@@ -1329,7 +1370,7 @@ h1{
     padding-top: 3%;
 }
 
-#Submit_Button{
+#Submit_Button {
     display: table;
     margin: auto;
     /* color: #000000;
@@ -1338,11 +1379,9 @@ h1{
 }
 
 /* Locations Page */
-#Locations_Page_Title{
+#Locations_Page_Title {}
 
-}
-
-#Locations_Greetings{
+#Locations_Greetings {
     color: #7c680b;
     text-align: center;
     font-weight: 700;
@@ -1351,12 +1390,12 @@ h1{
 }
 
 
-#All_Locations{
-    margin-left: 20%;
-    margin-right: 20%
+#All_Locations {
+    /* margin-left: 20%;
+    margin-right: 20% */
 }
 
-#Location_Card{
+#Location_Card {
     text-align: center;
     display: inline-block;
     width: 300px;
@@ -1364,7 +1403,7 @@ h1{
     margin-top: 5%;
 }
 
-#Store_Location{
+#Store_Location {
     color: #771800;
 }
 
@@ -1377,63 +1416,125 @@ h1{
 
 
 /* Single Location Page */
-#Single_Location_Title{
+#Single_Location_Title {}
 
-}
-
-#Update_Location_Button{
+#Update_Location_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-left: 20%;
 }
 
-#Single_Location_Card{
+#Single_Location_Card {
     margin-top: 20px;
     margin-left: 20%;
     margin-right: 25%;
     margin-bottom: 100px;
 }
 
-#Single_Location_Card_Title{
+#Single_Location_Card_Title {
     color: #a73a98;
+    font-weight: 700;
+    text-align: center;
 }
 
-#Store_Address, #Business_Hours{
+#Single_Location_Body_Text {
+    display: flex;
+    text-align: left;
+    margin-left: 5%;
+}
+
+#Single_Location_Store_Address {}
+
+#Store_Address_Title {}
+
+#Store_Address {
     color: #530a0a;
     font-weight: 700;
 }
 
-#Entire_Address{
+#Entire_Address {
     color: #110f11;
     padding-left: 32px;
     margin-bottom: 45px;
 }
 
-#Phone_Number{
-    margin-bottom: 45px;
+#Phone_Number {}
+
+
+#Single_Location_Business_Hours {
+    margin-left: 5%;
+
 }
 
-#Business_Hours_List {
-    list-style: none;
-}
-
-#Day {
-    color: #CC313D;
+#Business_Hours {
+    color: #530a0a;
     font-weight: 700;
 }
 
-#Open_And_Close_Times{
+#Business_Hours_List,
+#Weekly_Weather_List {
+    list-style: none;
+}
+
+#Monday {
+    color: #ff0000;
+    font-weight: 700;
+}
+
+#Tuesday {
+    color: #ff7700;
+    font-weight: 700;
+}
+
+#Wednesday {
+    color: #a6a300;
+    font-weight: 700;
+}
+
+#Thursday {
+    color: #1ba300;
+    font-weight: 700;
+}
+
+#Friday {
+    color: #001aff;
+    font-weight: 700;
+}
+
+#Saturday {
+    color: #8042e4;
+    font-weight: 700;
+}
+
+#Sunday {
+    color: #310033;
+    font-weight: 700;
+}
+
+#Open_And_Close_Times,
+#Daily_Weather_Forcast {
     color: #1e6d5c;
 }
 
 
+#Single_Location_Current_Weather {
+    margin-left: 5%;
+}
+
+#Single_Loc_Current_Weather {
+    color: #530a0a;
+    font-weight: 700;
+}
+
 /* Customer Shopping Review Form Page */
-#Customer_Shopping_Review_Form{
+#Customer_Shopping_Review_Form {
     margin-left: 14%;
     margin-right: 15%;
 }
 
-#Shopping_Date, #Review_Score, #Entire_Review {
+#Shopping_Date,
+#Review_Score,
+#Entire_Review {
     color: #13196b;
 }
 
@@ -1442,11 +1543,9 @@ h1{
 }
 
 /* Customer Reviews Page for Quansh Tech Staff Only */
-#Admin_Reviews_Dash_Title{
+#Admin_Reviews_Dash_Title {}
 
-}
-
-#Quansh_Tech_Reviews_Title{
+#Quansh_Tech_Reviews_Title {
     color: #7c680b;
     font-weight: 700;
     text-align: center;
@@ -1456,57 +1555,55 @@ h1{
 }
 
 
-#Entire_Review_Card{
+#Entire_Review_Card {
     margin-left: 14%;
     margin-right: 14%;
     margin-bottom: 100px;
     width: 65%;
 }
 
-#Review_Card_Header{
+#Review_Card_Header {
     font-weight: 700;
     color: #530a0a;
 }
 
 
-#Good_Review_Score{
+#Good_Review_Score {
     color: #30ff29;
     text-shadow: 0.25px 0.25px;
 }
 
-#Good_Review_Message{
+#Good_Review_Message {
     color: #11500e;
 }
 
-#Bad_Review_Score{
+#Bad_Review_Score {
     color: #ff0000;
     text-shadow: 0.25px 0.25px;
 }
 
-#Bad_Review_Message{
+#Bad_Review_Message {
     color: #6d0808;
 }
 
-#Average_Review_Score{
+#Average_Review_Score {
     color: #cfcd46;
     text-shadow: 0.25px 0.25px;
 }
 
-#Average_Review_Message{
+#Average_Review_Message {
     color: #757427;
 }
 
-#Review_Message{
+#Review_Message {
     color: #8d1f37;
 }
 
 
 /* Account Registration Page */
-#Account_Register_Title{
+#Account_Register_Title {}
 
-}
-
-#Create_Account_Message{
+#Create_Account_Message {
     color: #7c680b;
     font-weight: 700;
     text-align: center;
@@ -1516,67 +1613,70 @@ h1{
     margin-bottom: 50px;
 }
 
-#Account_Registration{
+#Account_Registration {
     margin-left: 14%;
     margin-right: 10%;
     width: 70%;
     color: #2e0000;
 }
 
-#Registration_Username, #Registration_First_Name, #Registration_Last_Name,
-#Registration_Email, #Registration_Password1, #Registration_Password2{
+#Registration_Username,
+#Registration_First_Name,
+#Registration_Last_Name,
+#Registration_Email,
+#Registration_Password1,
+#Registration_Password2 {
     color: #011e2e;
 }
 
 
-#Account_Registration_Submit_Button{
+#Account_Registration_Submit_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-left: 45%;
 }
 
 /* User Login Page */
-#User_Login_Title{
+#User_Login_Title {}
 
-}
-
-#User_Login{
+#User_Login {
     display: flex;
     margin-top: 5%;
     margin-right: 25%;
     margin-left: 25%;
 }
 
-#User_Login_Form{
+#User_Login_Form {
     width: 700px;
 }
 
-#Login_Username, #Login_Password{
+#Login_Username,
+#Login_Password {
     color: #2F3C7E;
 }
 
-#Login_Button{
+#Login_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-bottom: 5%;
     margin-right: 10%;
 }
 
-#Create_Account_Button{
+#Create_Account_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-bottom: 5%;
     margin-right: 10%;
 }
 
-#Forgot_Pass_Button{
+#Forgot_Pass_Button {
     /* color: #000000;
     background-color: #000000; */
     margin-bottom: 5%;
 }
 
 /* Generate Reports Page */
-#All_Reports{
+#All_Reports {
     display: inline-flex;
     margin-top: 2.5%;
     margin-left: 14%;
@@ -1584,122 +1684,188 @@ h1{
 }
 
 /* Existing User Account Recovery Page */
-#Account_Recovery_Page_Title{
+#Account_Recovery_Page_Title {}
 
-}
-
-#Forgot_Password_Message{
+#Forgot_Password_Message {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 5%;
     color: #bd0600;
 }
 
-#Account_Recovery_Buttons{
+#Account_Recovery_Buttons {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 3%;
 }
 
-#Reset_User_Button{
+#Reset_User_Button {
     margin-left: 20%;
     margin-right: 2.5%;
     /* color: #000000;
     background-color: #000000; */
 }
 
-#Reset_Pass_Button{
+#Reset_Pass_Button {
     margin-left: 5%;
     /* color: #000000;
     background-color: #000000; */
 }
 
 /* Leaving a Review Page */
-#Add_A_Review_Header{
+#Add_A_Review_Header {}
 
-}
-
-#Review_Form{
+#Review_Form {
     display: block;
     margin: auto;
     padding-top: 5%;
     width: 75%;
 }
 
-#Review_Form_Title{
-    text-align: center; 
+#Review_Form_Title {
+    text-align: center;
     font-weight: 700;
     color: #19172e;
     margin-bottom: 30px;
 }
 
-#Good_Title{
+#Good_Title {
     color: #088623;
 }
 
-#Bad_Title{
+#Bad_Title {
     color: #bdad1c;
 }
 
-#Ugly_Title{
+#Ugly_Title {
     color: #ff0000;
 }
 
-#Review_Form_Survey_Submit{
+#Review_Form_Survey_Submit {
     margin-left: 42%;
     margin-right: 40%;
 }
 
 /* Product Search Result Page */
-#Product_Search_Result_Title{
+#Product_Search_Result_Title {}
 
-} 
-
-#You_Searched_For{
+#You_Searched_For {
     text-align: center;
     font-weight: 700;
 }
 
-#ProductName_Search_Result_List, #ProductBrand_Search_Result_List{
+#ProductName_Search_Result_List,
+#ProductBrand_Search_Result_List {
     margin-left: 35%;
     margin-top: 15px;
     margin-bottom: 15px;
     width: 375px;
 }
 
-#Search_Result_Image{
+#Search_Result_Image {
     width: 100%;
     margin-bottom: 10px;
 }
 
 /* Shopping Cart Page */
-#Shopping_Cart_Title{
-
-}
+#Shopping_Cart_Title {}
 
 /* My Account Page */
-#My_Account_Title{
+#My_Account_Title {}
 
+/* Shopping Cart Page */
+#Entire_Shop_Cart {
+    margin-left: 20%;
 }
 
-/* My Shopping Cart Page */
-#My_Shop_Cart_Title{
-
+#Cart_Owner {
+    margin-left: 20%;
+    margin-right: 20%;
 }
+
+#Shopping_Cart_Header {
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#Carted_Item {
+    width: 800px;
+}
+
+#Carted_Product_Title {
+    color: #2645f1;
+}
+
+#Carted_Product_Summary {
+    color: #8d1f37;
+}
+
+#Carted_Product_Quantity {
+    color: #5101bb;
+}
+
+#Carted_Product_Per_Price {
+    color: #1b3b11;
+}
+
+#Total_Cart_Amount {
+    color: #2a128a;
+    margin-right: 100px;
+}
+
+#Total_Cart_Price {
+    color: #112c09;
+    margin-right: 75px;
+}
+
+
+/* Shopping Cart Check Out Page */
+#Check_Out_Title {}
+
+#PayPal_Buy_Button {
+    margin: auto;
+    margin-left: 25%;
+}
+
+/* Successful Payment Page */
+#Payment_Success_Title {}
+
+#Payment_Success_Body {
+    text-align: center;
+}
+
+#Payment_Success_Message {
+    font-weight: 700;
+}
+
+#Continue_Shopping_Button {
+    color: #f392f0;
+    background-color: #750879;
+    margin-top: 75px;
+}
+
+
+#Go_Back_Home_Button {
+    color: #001c37;
+    background-color: #007d84;
+    margin-top: 75px;
+}
+
+
+/* Failed Payment Page */
 
 /* My Support Page */
-#My_Support_Title{
-
-}
+#My_Support_Title {}
 
 
 /* 404 Error Page */
-#Web_Page_Not_Found_Title{
+#Web_Page_Not_Found_Title {
     color: #eb1b1b;
     text-shadow: 0.25px 0.25px;
 }
 
-#Page_404_Error_Image{
+#Page_404_Error_Image {
     display: flex;
     margin: auto;
     width: 70%;

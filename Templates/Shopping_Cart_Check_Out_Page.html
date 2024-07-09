@@ -5,27 +5,29 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title> Preorder </title>
+        <title> Cart Web Page </title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
         <link rel="stylesheet" type="text/css" href= "{% static 'Style.css' %}">
-
     </head>
 
     <body>
         <header> 
-            <span id="PreOrder_Title"> <h1> Product Pre Order Page </h1> </span>
+            <span id="Check_Out_Title"> <h1> Customer Checkout Page </h1> </span>
             {% include "Navbar.html"%} <br>
         </header>
 
         <main>
-            <div id="Products_To_PreOrder">
-                <h3> Products That Can Get Pre-Ordered </h3>
-                    {{Product.id}} {{Product}} <br>
-            </div>
+            <h3 id="Comment" style="color: green;"> Total Price is ${{Total_Price}} </h3>
+
+            {% if user.is_superuser or user.is_staff %}
+                <h3 id="Comment"> &#11088 Implement PayPal or Stripe Transaction SDK(s) HERE </h3> 
+            {% endif %}
+
+            <div id="PayPal_Buy_Button"> {{PayPalButtons.render}} </div>
         </main>
 
-        <footer> 
+        <footer>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
             <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
         </footer>

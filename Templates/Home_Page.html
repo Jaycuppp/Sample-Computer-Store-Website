@@ -29,19 +29,63 @@
             {% comment %} Carousel Image SlideShow {% endcomment %}
             <div id="Picture_SlideShow" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active"> <img src="{{SS1}}" class="d-block w-100" alt="https://images.pexels.com/photos/6373758/pexels-photo-6373758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
-                    <div class="carousel-item"> <img src="{{SS2}}" class="d-block w-100" alt="https://images.pexels.com/photos/1432675/pexels-photo-1432675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
-                    <div class="carousel-item"> <img src="{{SS3}}" class="d-block w-100" alt="https://images.pexels.com/photos/117729/pexels-photo-117729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
-                    <div class="carousel-item"> <img src="{{SS4}}" class="d-block w-100" alt="https://images.pexels.com/photos/163140/technology-computer-motherboard-chips-163140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
-                    <div class="carousel-item"> <img src="{{SS5}}" class="d-block w-100" alt="https://images.pexels.com/photos/2643596/pexels-photo-2643596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
-                    <div class="carousel-item"> <img src="{{SS6}}" class="d-block w-100" alt="https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item active"> <img id="SS1" src="{{SS1}}" class="d-block w-100" alt="https://images.pexels.com/photos/6373758/pexels-photo-6373758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item"> <img id="SS2" src="{{SS2}}" class="d-block w-100" alt="https://images.pexels.com/photos/1432675/pexels-photo-1432675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item"> <img id="SS3" src="{{SS3}}" class="d-block w-100" alt="https://images.pexels.com/photos/117729/pexels-photo-117729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item"> <img id="SS4" src="{{SS4}}" class="d-block w-100" alt="https://images.pexels.com/photos/163140/technology-computer-motherboard-chips-163140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item"> <img id="SS5" src="{{SS5}}" class="d-block w-100" alt="https://images.pexels.com/photos/2643596/pexels-photo-2643596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
+                    <div class="carousel-item"> <img id="SS6" src="{{SS6}}" class="d-block w-100" alt="https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"> </div>
                 </div>
             </div>
 
-            {% if user.is_superuser %}
-            <h3 id="Comment"> &#11088  Weather Tracker API Goes Here </h3>
-            <h3 id="Comment"> &#11088  Crypto &#8383 Tracker API Goes Here </h3>
-            {% endif %}
+            <div id="Crypto_Tracking" class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                  <div class="card" id="BTC_Crypto_Card">
+                    <img class="card-img-top" id="BTC_Logo_Pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/800px-Bitcoin.svg.png" alt="{{BTC_Pic.Image}}">
+                    <div class="card-body">
+                      <h5 class="card-title" id="BTC_Crypto_Price"> &#11088  &#8383; (Bitcoin) Price = <strong> &#36;{{BTC_PRICE}} USD </strong> </h5>
+                      <p class="card-text"> Buy Bitcoin Here: </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card" id="ETH_Crypto_Card">
+                    <img class="card-img-top" id="ETH_Logo_Pic" src="https://logowik.com/content/uploads/images/ethereum-eth7803.logowik.com.webp" alt="{{ETH_Pic.Image}}">
+                    <div class="card-body">
+                      <h5 class="card-title" id="ETH_Crypto_Price"> &#11088  &#208; (Etherium) Price = <strong> &#36;{{ETH_PRICE}} USD  </strong> </h5>
+                      <p class="card-text"> Buy Etherium Here:  </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="card" id="SOL_Crypto_Card">
+                    <img class="card-img-top" id="SOL_Logo_Pic" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Solana_logo.png/252px-Solana_logo.png">
+                    <div class="card-body">
+                      <h5 class="card-title" id="SOL_Crypto_Price"> &#11088  &#208; (Solana) Price = <strong> &#36;{{SOL_PRICE}} USD  </strong> </h5>
+                      <p class="card-text"> Buy Solana Here: </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col" id="USDT_Crypto_Card">
+                  <div class="card">
+                    <img class="card-img-top" id="USDT_Logo_Pic" src="https://static-00.iconduck.com/assets.00/tether-cryptocurrency-icon-2048x2048-dp13oydi.png">
+                    <div class="card-body">
+                      <h5 class="card-title" id="USDT_Crypto_Price">&#11088  &#208; (Tether) Price = <strong> &#36;{{USDT_PRICE}} USD  </strong> </h5>
+                      <p class="card-text"> Buy Tether Here: </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+          {% if user.is_superuser or user.is_staff %}  
+            <h3 class="card-title" id="Comment"> &#11088 SlideShow For Latest IT News using API </h3>
+          {% endif %}
+
+            {% include 'Home_Page_Toast1.html' %}
 
         </main>
 
@@ -52,6 +96,7 @@
                 <span id="Computer_Store_Email_Home"> &#128231 &#8658 <a href="mailto:hakobkoa@gmail.com"> <strong> QT@QuanshTech.com </strong> </a> </span>
                 <span id="Computer_Store_Phone_Home"> &#128222 &#8658 <a href="tel:818-364-2146"> <strong> 818-364-2146 </strong> </a> </span>
             </div>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
             <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
         </footer>

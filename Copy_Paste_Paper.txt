@@ -1,0 +1,33 @@
+
+Below is for Adding a New Product to the PROD Database
+{% if user.is_superuser %}
+  <a class="btn btn-success" id="Add_A_Product_Button" href="{% url 'AddProductPage' %}"> Add A New Product Here </a>
+{% endif %}
+
+
+
+Below is for activating the Off Canvas Page 
+<button class="btn btn-dark" id="All_Products_PreOrder_Button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Pre Order </button>
+
+Authenticate Website Feature For Users Who Have an Account for the website
+{% if user.is_authenticated %}
+
+Authenticate Website Feature For Users Who are either Staff Members or Website Admins
+{% if user.is_superuser or user.is_staff %}
+
+
+Prod Title Color == color: #2645f1;
+Prod Summary Color == color: #8d1f37;
+Prod Quant Color == color: #5101bb;
+
+
+
+ <h3 id="Comment"> &#11088 (Used For Pointing Out Front End Logic to Fix/Update/Remove) </h3> 
+
+ Check_Out_Title
+
+
+ {{user.id}}
+
+
+ <a href="{% url 'ShowProductPage' product.id %}">

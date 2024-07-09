@@ -39,27 +39,27 @@
 
             <div id="Employment_Positions">
                 {% for Job in Jobs %}
-                {% if Job.Filled == False %}
-                <div class="card" id="One_Job_Display">
-                    <div class="card-header"> <h5 class="card-title" id="Job_Title"> {{ Job.Title }} </h5> </div>
-                    <div class="card-body">
-                        
-                        {% if Job.Location_Type == "On Site" or Job.Location_Type == "Hybrid (On-site & Remote)" %}
-                        <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> The {{ Job.Store_Location }}</p>
-                        {% else %}
-                        <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> AnyWhere You Want </p>
-                        {% endif %}
+                    {% if Job.Filled == False %}
+                        <div class="card" id="One_Job_Display">
+                            <div class="card-header"> <h5 class="card-title" id="Job_Title"> {{ Job.Title }} </h5> </div>
+                            <div class="card-body">
+                                
+                                {% if Job.Location_Type == "On-Site" or Job.Location_Type == "Hybrid" %}
+                                    <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> The {{ Job.Store_Location }}</p>
+                                {% else %}
+                                    <p class="card-text" id="WorkPlace"> <strong> Workplace: </strong> AnyWhere You Want </p>
+                                {% endif %}
 
-                        <p class="card-text" id="Job_Key_Respons"> <strong> Key Responsibilties </strong> </p>
-                        <p class="card-text" id="Responsibilties"> 
-                            &#8729 {{ Job.Key_Responsibilities.First }} <br> &#8729 {{ Job.Key_Responsibilities.Second }} <br>
-                            &#8729 {{ Job.Key_Responsibilities.Third }} <br> &#8729 {{ Job.Key_Responsibilities.Fourth }}
-                        </p>
-                        <p class="card-text" id="Salary"> <strong> Annual Salary: </strong> {{ Job.Salary }} </p>
-                        <a href="{% url 'JobApplication' Job.id %}" class="btn btn-primary"> <strong> Click Here to Apply </strong> </a>
-                    </div> 
-                </div>
-                {% endif %}
+                                <p class="card-text" id="Job_Key_Respons"> <strong> Key Responsibilties </strong> </p>
+                                <p class="card-text" id="Responsibilties"> 
+                                    &#8729 {{ Job.Key_Responsibilities.First }} <br> &#8729 {{ Job.Key_Responsibilities.Second }} <br>
+                                    &#8729 {{ Job.Key_Responsibilities.Third }} <br> &#8729 {{ Job.Key_Responsibilities.Fourth }}
+                                </p>
+                                <p class="card-text" id="Salary"> <strong> Annual Salary: </strong> {{ Job.Salary }} </p>
+                                <a href="{% url 'JobApplication' Job.id %}" class="btn btn-primary" id="Apply_Button"> <strong> Click Here to Apply </strong> </a>
+                            </div> 
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
 
@@ -68,6 +68,7 @@
 
         <footer> 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+            <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
         </footer>
     </body>
 </html>

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -25,11 +25,18 @@ urlpatterns = [
     path('ProductSearch', views.ProductSearchPage, name="ProductSearchResultPage"),
     path('ProductAdd', views.ProductAddPage, name="AddProductPage"),
     path('Account/MyAccount', views.AccountPage, name="MyAccountPage"),
-    path('Account/MyShoppingCart', views.MyShoppingCart, name="MyShoppingPage"),
     path('Account/MySupport', views.MySupport, name="MySupportPage"),
     path('Account/Reset/UsernameOrPassword', views.AccountReset, name="AccountReset"),
     path('PreOrder', views.AllPreOrder, name="AllPreOrder"),
-    path('ShoppingCart', views.ShoppingCart, name="ShoppingCart"),
+    path('Promotions', views.AllPromotions, name="AllOnPromo"),
+    path('ShoppingCart', views.ShopCart, name="ShoppingCart"),
+    path('ShoppingCartAppendOne/<Product_ID>', views.ShopCart_Single_Add, name="AddToShopCart"),
+    path('ShoppingCartAppendAlot/<Product_ID>', views.ShopCart_Multi_Add, name="AddManyToShopCart"),
+    path('ShoppingCartRemoveOne/<Product_ID>', views.ShopCart_Single_Delete, name="RemoveFromShopCart"),
+    path('ShoppingCartRemoveAll/<Product_ID>', views.ShopCart_Multi_Delete, name="RemoveAllFromShopCart"),
+    path('ShoppingCartCheckOut', views.ShopCart_CheckOut, name="CheckingOut"),
+    path('Payment-Success/', views.PayPal_Successfull_Payment, name='PayPalPaymentSuccess'),
+    path('Payment-Failure/', views.PayPal_Failure_Payment, name='PayPalPaymentFail'),
     path('AdminDash/ECommerce', views.AdminDashECommerce, name="AdminDashECommerce"),
     path('AdminDash/RetailStores', views.AdminDashRetailStores, name="AdminDashRetailStores"),
     path('AdminDash/CustomerSupportUpdate/<Ticket_ID>', views.AdminCustomerSupportUpdate, name="UpdateCSRTicket"),

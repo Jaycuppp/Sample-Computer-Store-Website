@@ -1,7 +1,14 @@
 # Necessary Website creation Libraries
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, FileResponse, Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator    
+from django.conf import settings
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
+# For Pagination Mainly for the Product Menu Pages
+from django.core.paginator import Paginator
+
+# To create those pop-up messages under a specific set of conditions
 from django.contrib import messages
 
 # For PDF support
@@ -11,11 +18,21 @@ from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
 
 #For API Calls
-# import requests
+import json
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+
+
+#For Django Paypal Integration
+import uuid
+from paypal.standard.forms import PayPalPaymentsForm
+from paypal.standard.models import ST_PP_COMPLETED
+from paypal.standard.ipn.signals import valid_ipn_received
 
 # Connecting from other code files in same Django project
 from .models import *
 from .forms import *
+from .api import *
 
 def HomePage(request):
     # Slide Show Images Being Pulled From the AWS S3 QT Bucket
@@ -26,7 +43,25 @@ def HomePage(request):
     SS5 = "https://qt-bucket.s3.amazonaws.com/Images/Home_Page_Slide_Show_Pic_5.PNG"
     SS6 = "https://qt-bucket.s3.amazonaws.com/Images/Home_Page_Slide_Show_Pic_6.PNG"
     
-    # BitCoinAPICall = requests
+    BTC_Logo = Pictures.objects.get(pk=7)
+    ETH_Logo = Pictures.objects.get(pk=8)
+    
+
+    # For Fetching Crypto Data Using Coin Market Cap API
+    Coin_Market_Cap_IDs = {
+        "BTC": "1",
+        "ETH": "1027",
+        "USDT": "825",
+        "SOL": "5426",
+        "USDC": "3408",
+        "DOGE": "74",
+        "LTC": "2", 
+        }
+
+    BTC_PRICE = round(Home_Page_API.Crypto_Pricing_Data(Coin_ID=Coin_Market_Cap_IDs["BTC"], Currency="USD"), 2)
+    ETH_PRICE = round(Home_Page_API.Crypto_Pricing_Data(Coin_ID=Coin_Market_Cap_IDs["ETH"], Currency="USD"), 2)
+    USDT_PRICE = round(Home_Page_API.Crypto_Pricing_Data(Coin_ID=Coin_Market_Cap_IDs["USDT"], Currency="USD"), 2)
+    SOL_PRICE = round(Home_Page_API.Crypto_Pricing_Data(Coin_ID=Coin_Market_Cap_IDs["SOL"], Currency="USD"), 2)
 
     return render(request, "Home_Page.html", {
         "SS1": SS1,
@@ -35,6 +70,10 @@ def HomePage(request):
         "SS4": SS4,
         "SS5": SS5,
         "SS6": SS6,
+        "BTC_PRICE": BTC_PRICE,
+        "ETH_PRICE": ETH_PRICE,
+        "USDT_PRICE": USDT_PRICE,
+        "SOL_PRICE": SOL_PRICE,
     })
 
 def AboutUsPage(request):
@@ -44,20 +83,21 @@ def AboutUsPage(request):
 
 def LocationsPage(request):
     Location = StoreLocations.objects.all().order_by('City')
-    Map_Access_Token = 'pk.pk.eyJ1IjoibmluamEwODE0IiwiYSI6ImNsbjBqcGpzcjFkc3YybHBoMGpzb3d6NDEifQ.Q327KcgWcaRFoAQSuuDmGQ.Q327KcgWcaRFoAQSuuDmGQ'
+    City_Temp = Location_Index_Page_API.Current_Weather_API("Burbank", "CA")
+    
     return render(request, "Locations_Index_Page.html", {
         "Locations": Location,
-        "Map_Access_Token": Map_Access_Token,
+        "CityTemp": City_Temp
     })
 
 
 def ShowLocation(request, Location_ID):
     Location = StoreLocations.objects.get(pk=Location_ID)
-
-    Map_Access_Token = 1
+    City_Temp = Location_Index_Page_API.Current_Weather_API(f"{Location.City}", "CA")
 
     return render(request, "Locations_Closer_View_Page.html", {
-        "Location": Location
+        "Location": Location,
+        "CityTemp": City_Temp,
         })
 
 
@@ -127,9 +167,15 @@ def ProductsPage(request):
     
     Numbers = "h" * Products.paginator.num_pages
     
+    # Querying Shop Cart Data only for the User
+    User_Shop_Cart = ShoppingCart.objects.filter(User_id=request.user.id)
+    Total_Price = sum(Item.Product.Price * Item.Amount for Item in User_Shop_Cart)
+    
     return render(request, "Product_Menu_Page.html", {
         "PaginatedProducts": Products,
-        "Numbers": Numbers
+        "Numbers": Numbers,
+        "User_Cart" : User_Shop_Cart,
+        "Total_Price" : Total_Price,
     })
 
 
@@ -208,24 +254,115 @@ def ProductSearchPage(request):
     
 def AllPreOrder(request):
     No_Stock_Products = StoreProducts.objects.filter(Stock=0).order_by("Brand")
+    
     return render(request, "Product_PreOrder_All.html", {
         "Products": No_Stock_Products,
     })
+    
+    
+def AllPromotions(request):
+    
+    Promo_Products = StoreProducts.objects.exclude(Coupon=None).order_by("Brand")
+    
+    return render(request, "Product_OnPromos_Page.html", {
+        "Products": Promo_Products,
+    })
 
-def ShoppingCart(request):
+
+def ShopCart(request): 
+    # Control Flow For Only Allowing People With Accounts To Have Access To Shop
     if request.user.is_authenticated:
-        User = request.user.id
-        # User_Products = StoreProducts.objects.filter(User)
-        return render(request, "Shopping_Cart_Page.html", {
-            "User": User,
-            })
+        
+        # All the Shop Cart Items for each specific User that is logged in
+        Items_On_Cart = ShoppingCart.objects.filter(User=request.user)
+        
+        # 1 Line Iteration of the Total Pricing of all the Items in the Shop Cart Container
+        Total_Price = round(sum(Item.Product.Price * Item.Amount for Item in Items_On_Cart), 2)
+        Total_Amount = (Item.Amount for Item in Items_On_Cart)
+        
+        return render(request, 'Shopping_Cart_Page.html', {
+            "CartedItems": Items_On_Cart,
+            "TotalPrice": Total_Price,
+            "TotalAmount": Total_Amount
+        })
+        
     else:
         messages.success(request, f"You Must Have an Account To Access the Shopping Cart")
-        return render(request, "User_Register.html", {
-            
-        })
+        return render(request, "User_Register.html", {})
     
+# For adding item(s) onto the Shopping Cart 
+def ShopCart_Single_Add(request, Product_ID):
+    Product = StoreProducts.objects.get(id=Product_ID)
+    Carted_Item, Created = ShoppingCart.objects.get_or_create(Product=Product, User=request.user)
+    Carted_Item.Amount += 1
+    Carted_Item.save()
+    return redirect("ShoppingCart")
+
+def ShopCart_Multi_Add(request, Product_ID):
+    Product = StoreProducts.objects.get(id=Product_ID)
+    Carted_Item, Created = ShoppingCart.objects.get_or_create(Product=Product, User=request.user)
+    # Carted_Item.Amount += 1
+    Carted_Item.save()
+    return redirect("ShoppingCart")
+
+# For Removing item(s) from the Shopping Cart
+def ShopCart_Single_Delete(request, Product_ID):
+    Carted_Item = ShoppingCart.objects.get(id=Product_ID)
+    Carted_Item.Amount -= 1
+    Carted_Item.save()
+    return redirect("ShoppingCart")
+
+# For Removing the Entire Product From the User`s Shopping Cart
+def ShopCart_Multi_Delete(request, Product_ID):
+    Carted_Item = ShoppingCart.objects.get(id=Product_ID)
+    Carted_Item.delete()
+    return redirect("ShoppingCart")
+
+
+def PayPal_Successfull_Payment(request):
+    return render(request, "PayPal_Payment_Success_Page.html", {})
+
+
+def PayPal_Failure_Payment(request):
+    return render(request, "PayPal_Payment_Failure_Page.html", {})
+
+
+def PayPal_IPN(request):
+    return HttpResponse(status=200)
+
+
+def ShopCart_CheckOut(request):
+    # All the Shop Cart Items for each specific User that is logged in
+    Items_On_Cart = ShoppingCart.objects.filter(User=request.user)
     
+    # 1 Line Iteration of the Total Pricing of all the Items in the Shop Cart Container
+    Total_Price = round(sum(Item.Product.Price * Item.Amount for Item in Items_On_Cart), 2)
+    
+    Host = request.get_host()
+    
+    # Paypal Dictionary Key Value Pairs Below
+    # https://developer.paypal.com/api/nvp-soap/paypal-payments-standard/integration-guide/Appx-websitestandard-htmlvariables/
+    PayPal_Hash_Map = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL, #The merchant account reciving patment
+        "amount": Total_Price,
+        "item_name": "Some Item Name(s)",
+        "invoice": uuid.uuid4(),
+        "notify_url": f"http://{Host}{reverse('paypal-ipn')}",
+        "return":  f"http://{Host}{reverse('PayPalPaymentSuccess')}",
+        "cancel_return": f"http://{Host}{reverse('PayPalPaymentFail')}",
+        #"rm": 2,
+        # "Custom": "Premium_Plan",
+    }
+
+    PayPalForm = PayPalPaymentsForm(initial=PayPal_Hash_Map)
+    
+    return render(request, "Shopping_Cart_Check_Out_Page.html", {
+        "Items": Items_On_Cart,
+        "Total_Price": Total_Price,
+        "PayPalButtons": PayPalForm,
+    })
+    
+
 def Services_TechConsultation(request):
     Testimonials = CustomerTestimonials.objects.all()
     
@@ -249,8 +386,7 @@ def Services_Careers_Applying(request, Job_ID):
         if form.is_valid():
             Application = form.save(commit=False)
             Application.save()
-            messages.success(request,
-                            f''' You Have Successfully Submitted Your Application for the Quansh Tech {Job.Title} Position! ''')
+            messages.success(request, f''' You Have Successfully Submitted Your Application for the Quansh Tech {Job.Title} Position! ''')
             return (redirect("Careers"))
 
         else:
@@ -392,9 +528,6 @@ def CustomerReviewFormPage(request):
 
 def AccountPage(request):
     return render(request, "Account_My_Account_Page.html", {})
-
-def MyShoppingCart(request):
-    return render(request, "Account_My_Shopping_Cart_Page.html", {})
 
 def MySupport(request):
     return render(request, "Account_My_Support_Page.html", {})

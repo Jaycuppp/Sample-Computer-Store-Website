@@ -20,9 +20,6 @@
 
     <main>
       {% comment %} Display Login / Logout Message {% endcomment %}
-      {% if user.is_superuser %}
-        <a class="btn btn-success" id="Add_A_Product_Button" href="{% url 'AddProductPage' %}"> Add A New Product Here </a>
-      {% endif %}
 
       {% if messages %}
         {% for message in messages %}
@@ -30,8 +27,12 @@
         {% endfor %}
       {% endif %}
 
-      <a class="btn btn-dark" id="Pre_Order_Page" href="{% url 'AllPreOrder' %}" target="blank"> Pre Order Out Of Stock Products Here  </a>
+      <span> 
+        <a class="btn btn-dark" id="Pre_Order_Page" href="{% url 'AllPreOrder' %}" target="blank"> Pre Order Out Of Stock Products Here  </a>
+        <a class="btn btn-dark" id="Active_Promotion_Page" href="{% url 'AllOnPromo' %}" target="blank"> View Products On A Promo Here </a>
+      </span>
 
+      {% comment %} Above Page NavBar {% endcomment %}
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           {% if PaginatedProducts.has_previous %}
@@ -40,7 +41,11 @@
           {% endif %}
 
           {% for iter in Numbers %}
-            <li class="page-item"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
+            {% if iter == Numbers %}
+              <li class="page-item active"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
+            {% else %}
+              <li class="page-item"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
+            {% endif %}
           {% endfor %}
 
           {% if PaginatedProducts.has_next %}
@@ -63,13 +68,13 @@
 
                         {% comment %} Missing the Promo Calculation Logic for the HTML Page {% endcomment %}
                         {% if product.CouponName == "MLG360"%}
-                        <p class="card-text" id="Product_Price"> Price: ${{ product.Promo_Product }} </p>
+                          p class="card-text" id="Product_Price"> Price: ${{ product.Promo_Product }} </p>
 
                         {% elif product.CouponName == "MKBundle"%}
-                        <p class="card-text" id="Product_Price">  Price: ${{ product.Promo_Product }} </p>
+                          <p class="card-text" id="Product_Price">  Price: ${{ product.Promo_Product }} </p>
 
                         {% else %}
-                        <p class="card-text" id="Product_Price"> Price: ${{ product.Price }} </p>
+                          <p class="card-text" id="Product_Price"> Price: ${{ product.Price }} </p>
                         {% endif %}
 
                         {% comment %} Logic for When a Product is either Out of Stock and/or Discontinued from the Store(s) {% endcomment %}
@@ -90,11 +95,24 @@
 
                         <span id="All_Products_Common_Buttons"> 
                           <a href="{% url 'ShowProductPage' product.id %}" class="btn btn-dark" id="All_Products_View_Item_Button"> View Item </a>
-                          {% if product.Stock == 0 %}
-                          <a href="{% url 'ShoppingCart' %}" class="btn btn-dark" id="All_Products_PreOrder_Button"> Pre Order </a>
+
+                          {% if product.Stock == 0 and user.is_authenticated %}
+                            <a href="" class="btn btn-dark" id="All_Products_PreOrder_Button"> Pre Order </a>
+                            {% include 'Shopping_Cart_Side.html' %}
+
+                          {% elif product.Stock == 0  %}
+                            <a href="" class="btn btn-dark" id="All_Products_PreOrder_Button"> Pre Order </a>
+                            {% include 'Shopping_Cart_Side.html' %}
+                            
+                          {% elif user.is_authenticated %}
+                            <a href="{% url 'AddToShopCart' product.id %}"  class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add to cart </a>
+                            {% include 'Shopping_Cart_Side.html' %}
+
                           {% else %}
-                          <a href="{% url 'ShoppingCart' %}"  class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add to cart </a>
+                            <a href="" class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add to cart </a>
+                            {% include 'Shopping_Cart_Side.html' %}
                           {% endif %}
+
                         </span> 
 
                         {% if user.is_superuser %}
@@ -114,26 +132,26 @@
     </main>
 
       <footer>
+        <nav aria-label="Page navigation example" id="Bottom_Product_Page_Selector">
+          <ul class="pagination justify-content-center">
+            {% if PaginatedProducts.has_previous %}
+              <li class="page-item"> <a href="?page=1" class="page-link"> &laquo First </a> </li>
+              <li class="page-item"> <a href="?page={{PaginatedProducts.previous_page_number}}" class="page-link"> Previous </a> </li>
+            {% endif %}
 
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          {% if PaginatedProducts.has_previous %}
-            <li class="page-item"> <a href="?page=1" class="page-link"> &laquo First </a> </li>
-            <li class="page-item"> <a href="?page={{PaginatedProducts.previous_page_number}}" class="page-link"> Previous </a> </li>
-          {% endif %}
+            {% for iter in Numbers %}
+              <li class="page-item"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
+            {% endfor %}
 
-          {% for iter in Numbers %}
-            <li class="page-item"> <a href="?page={{forloop.counter}}" class="page-link" id="Total_Pages"> {{ forloop.counter }} </a> </li>
-          {% endfor %}
-
-          {% if PaginatedProducts.has_next %}
-            <li class="page-item"> <a href="?page={{PaginatedProducts.next_page_number}}" class="page-link"> Next  </a> </li>
-            <li class="page-item"> <a href="?page={{PaginatedProducts.paginator.num_pages}}" class="page-link"> Last &raquo </a> </li>
-          {% endif %}
-        </ul>
-      </nav>
+            {% if PaginatedProducts.has_next %}
+              <li class="page-item"> <a href="?page={{PaginatedProducts.next_page_number}}" class="page-link"> Next  </a> </li>
+              <li class="page-item"> <a href="?page={{PaginatedProducts.paginator.num_pages}}" class="page-link"> Last &raquo </a> </li>
+            {% endif %}
+            </ul>
+          </nav>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+        <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
       </footer>
     </div>
   </body>

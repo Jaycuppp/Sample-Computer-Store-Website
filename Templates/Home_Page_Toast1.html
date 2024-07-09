@@ -1,0 +1,19 @@
+
+<button type="button" class="btn btn-dark" id="liveToastBtn"> Quick Chat </button>
+
+
+
+{% comment %} The Content Inside of the Toast {% endcomment %}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          {% comment %} <img src="..." class="rounded me-2" alt="..."> {% endcomment %}
+           &#129302;
+          <strong class="me-auto"> Abo </strong>
+          <small> 11 mins ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"> &#128075; Hello and Welcome to Quansh Tech!
+          My name is Abo and I'm happy to help</div>
+    </div>
+</div>

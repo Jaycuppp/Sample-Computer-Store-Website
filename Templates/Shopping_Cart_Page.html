@@ -18,11 +18,60 @@
         </header>
 
         <main>
-            <img style="margin-left: 25%;" src="https://www.vhv.rs/dpng/d/533-5338258_vector-illustration-of-supermarket-grocery-store-shopping-cartoon.png" alt=""> <br> <br> <br> <br> <br> <br>
+            <div id="Entire_Shop_Cart">
+                <h2 id="Cart_Owner"> {{user.username}}`s Shopping Cart </h2> 
+                <span id="Shopping_Cart_Header"> 
+                    {% if user.is_superuser or user.is_staff %}
+                    <h3 id="Total_Cart_Amount"> Total Items Carted : 5</h3>
+                    {% endif %}
+
+                    {% if TotalPrice >= 0 %}
+                    <h3 id="Total_Cart_Price"> Subtotal: &#36;{{TotalPrice}} </h3>
+                    {% endif %}
+
+
+                    <a href="{% url 'CheckingOut' %}"  class="btn btn-dark" id="Check_Out_Button"> Check Out </a>
+                </span>
+
+                {% for Item in CartedItems %}
+                    <div class="card mb-3" id="Carted_Item">
+                        <div class="row g-0">
+                            <div class="col-md-4"> <img class="img-fluid rounded-start" src="https://qt-bucket.s3.amazonaws.com/{{Item.Product.Picture}}" alt="..."> </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="Carted_Product_Title"> {{Item.Product}} </h5>
+                                    <p class="card-text"  id="Carted_Product_Summary"> {{Item.Product.Summary}} </p>
+                                    {% if user.is_superuser or user.is_staff %}
+                                    <p class="card-text" style='color: red;'>  Product ID == {{Item.Product.id}}; Cart Item ID == {{Item.id}} </p>
+                                    {% endif %}
+                                    <p class="card-text" id="Carted_Product_Quantity"> Quantity : {{Item.Amount}} </p>
+                                    <p class="card-text" id="Carted_Product_Per_Price"> Per Price : &#36;{{Item.Product.Price}} </p>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary"> 
+                                            <span>
+                                                <a href="{% url 'AddToShopCart' Item.Product.id %}"  class="btn btn-dark" id="All_Products_Add_To_Cart_Button"> Add 1 More to cart </a> 
+
+                                                {% if Item.Amount > 0 %}
+                                                <a href="{% url 'RemoveFromShopCart' Item.id %}"  class="btn btn-dark" id="All_Products_Delete_Button"> Remove 1 from cart </a>
+                                                {% elif Item.Amount == 0 %}
+                                                <a href="{% url 'RemoveAllFromShopCart' Item.id %}"  class="btn btn-dark" id="All_Products_Delete_Button"> Delete Item from Cart </a>
+                                                {% else %}
+                                                
+                                                {% endif %}
+                                            </span>
+                                        </small> 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            <div>
         </main>
 
         <footer>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"> </script>
+            <script type="text/javascript" src="{% static 'Script.js' %}"> </script>
         </footer>
     </body>
 </html>

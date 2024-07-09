@@ -4,6 +4,11 @@ Writing Symbols Used
 
 
 Emojis Used 
+&#36; == Dollar Sign
+&#8383; == BTC Symbol
+&#208; == ETH Symbol
+&#9925; == Sun Behind Cloud
+&#x2109; == Fahrenheit Temp Symbol
 &#127968 == Red Roofed Home 
 &#127970 == Office Building
 &#128222 == Red Telephone
@@ -17,8 +22,7 @@ Emojis Used
 &#129309 == Hand Shake
 &#128184 == Money Bills
 &#127758 == Global Sphere
+&#128075; == Waving Hand
 
-
-For More Desired Symbols, visit the link below
-
-https://www.w3schools.com/charsets/ref_utf_symbols.asp
+For More Desired Symbols, visit the links below
+https://www.compart.com/en/unicode/

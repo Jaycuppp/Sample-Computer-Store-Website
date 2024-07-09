@@ -81,7 +81,7 @@
             Account </button>
             <ul class="dropdown-menu" id="Account_DropDown_Options">
               <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MyAccountPage' %}" target="blank"> My Account </a> </li>
-              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MyShoppingPage' %}" target="blank"> My Shoping Cart </a> </li>
+              <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'ShoppingCart' %}" target="blank"> My Shoping Cart </a> </li>
               <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'MySupportPage' %}" target="blank"> My Support  </a> </li>
               <li> <a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'LogoutPage' %}" target="blank"> Logout </a> </li>
             </ul>
@@ -101,7 +101,7 @@
               {% endif %}
 
               {% if user.is_superuser or user.is_staff %}
-              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminDashECommerce' %}" target="blank"> Website Statistics </a></li>
+              <li><a class="dropdown-item" id="NavBar_DropDown_Menu_Button" href="{% url 'AdminDashECommerce' %}" target="blank"> Quansh E-Commerce </a></li>
               {% endif %}
 
               {% if user.is_superuser or user.is_staff or user.username == "QTMan"%}

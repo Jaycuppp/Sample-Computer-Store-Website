@@ -1,6 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import CustomerReviews, JobApplications, StoreProducts, StoreLocations, CustomerSupportTickets
+
+# Connecting the models.py page with this forms.py page
+from .models import *
+
+
+from paypal.standard.forms import PayPalPaymentsForm
 
 class ShoppingReview(ModelForm):
     class Meta:
@@ -21,7 +26,7 @@ class ShoppingReview(ModelForm):
 class ProductForm(ModelForm):
     class Meta:
         model = StoreProducts
-        fields = ('Name', 'Brand', 'Price', 'Stock', 'Picture', 'Discontinued', 'Summary', 'Key_Feat_1', 'Key_Feat_2', 'Key_Feat_3', 'Key_Feat_4',
+        fields = ('Name', 'Brand', 'Price', 'Stock', 'Picture', 'Spec_Sheet', 'Discontinued', 'Summary', 'Key_Feat_1', 'Key_Feat_2', 'Key_Feat_3', 'Key_Feat_4',
                 'Key_Feat_5', 'Key_Feat_6', 'Key_Feat_7', 'Key_Feat_8', 'Key_Feat_9', 'Key_Feat_10')
 
         labels = {
@@ -30,6 +35,7 @@ class ProductForm(ModelForm):
             'Price': '',
             'Stock': '',
             'Picture': 'Upload Product Image Here',
+            'Spec_Sheet': "(If Availabile) Upload Specification Sheet Here",
             'Discontinued': 'Mark if Product is Discontinued',
             'Summary': '',
             'Key_Feat_1': '',
@@ -61,6 +67,10 @@ class ProductForm(ModelForm):
             'Key_Feat_9': forms.Textarea(attrs={'class':'form-control', 'id': 'Product_Form_Description', 'placeholder': 'Enter NEW Product Key Feature 9'}),
             'Key_Feat_10': forms.Textarea(attrs={'class':'form-control', 'id': 'Product_Form_Description', 'placeholder': 'Enter NEW Product Key Feature 10'}),
             }
+        
+# class PayPalPayForm(PayPalPaymentsForm):
+#     def HTML_Sunmit_Elemet(self):
+#         return ''' <button type="submit"> Continue on PayPal website </button> '''
 
 class LocationForm(ModelForm):
     class Meta:
